@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vellora & Co — Koleksi Kerudung Nyaman & Modis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- File CSS Terpisah (untuk deployment lokal) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background-color: #FFFDF9;
+            color: #3E3636;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .swatch-ring {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .swatch-ring.active {
+            transform: scale(1.18);
+            box-shadow: 0 0 0 2px #FFFDF9, 0 0 0 4px #C28585;
+        }
+        .hijab-photo-slot {
+            aspect-ratio: 4 / 5;
+        }
+        .dropzone-active {
+            border-color: #C28585 !important;
+            background-color: #F6E7E7 !important;
+        }
+        .brand-logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .brand-logo-mark svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vellora: {
+                            cream: '#FFFDF9',
+                            beige: '#F7F3EE',
+                            sand: '#E8DFD3',
+                            pink: '#D8A4A4',
+                            pinkDark: '#C28585',
+                            pinkLight: '#F6E7E7',
+                            dark: '#3E3636',
+                            muted: '#7A6E6E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-vellora-cream text-vellora-dark antialiased selection:bg-vellora-pink selection:text-white">
+
+    <!-- ================= NAVBAR / HEADER ================= -->
+    <header class="sticky top-0 z-40 bg-vellora-cream/90 backdrop-blur-md border-b border-vellora-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Brand -->
+                <a href="#beranda" onclick="switchView('store')" class="flex items-center gap-3 group" aria-label="Vellora & Co Beranda">
+                    <span class="brand-logo-mark h-12 sm:h-13 w-auto px-2.5 py-1 rounded-2xl bg-white border border-vellora-sand/90 shadow-2xs group-hover:border-vellora-pinkDark group-hover:scale-[1.02]">
+                        <svg viewBox="0 0 280 120" class="h-full w-auto" role="img" aria-label="Logo Vellora &.CO">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M58 26 C40 22, 26 34, 30 48 C33 58, 46 60, 56 52 C68 42, 86 24, 98 15 C100 13, 101 16, 97 23 C81 51, 63 82, 50 103 C47 107, 44 105, 46 98 C50 82, 55 64, 56 52" stroke-width="2.4"/>
+                                <path d="M99 17 C84 45, 66 77, 50 103" stroke-width="4.6"/>
+                                <path d="M50 103 C60 88, 69 77, 78 72" stroke-width="3.2"/>
+                                <path d="M52 91 C51 102, 62 106, 76 100 C102 88, 146 86, 188 94 C194 95, 198 99, 200 104" stroke-width="3.6"/>
+                            </g>
+                            <text x="74" y="77" fill="currentColor" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="500" letter-spacing="3.5">ELLORA</text>
+                            <text x="195" y="45" fill="currentColor" font-family="'Playfair Display', Georgia, serif" font-size="13.5" font-weight="500" letter-spacing="1.5">&amp;.CO</text>
+                        </svg>
+                    </span>
+                    <div class="hidden sm:block">
+                        <span class="font-serif text-xl font-bold tracking-tight text-vellora-dark block leading-none">Vellora &amp; Co</span>
+                        <span class="text-[10px] uppercase tracking-widest text-vellora-muted font-medium">Muslimah Essentials</span>
+                    </div>
+                </a>
+
+                <!-- Navigasi Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" onclick="switchView('store')" class="nav-link text-sm font-medium text-vellora-dark hover:text-vellora-pinkDark transition">Beranda</a>
+                    <a href="#katalog" onclick="switchView('store')" class="nav-link text-sm font-medium text-vellora-dark hover:text-vellora-pinkDark transition">Katalog</a>
+                    <a href="#cara-pesan" onclick="switchView('store')" class="nav-link text-sm font-medium text-vellora-dark hover:text-vellora-pinkDark transition">Cara Pesan</a>
+                    <button onclick="handleAdminNavClick()" id="nav-admin-btn" class="text-sm font-medium px-4 py-1.5 rounded-full bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition flex items-center gap-2 border border-vellora-sand/70">
+                        <i id="nav-admin-icon" class="fa-solid fa-lock text-vellora-pinkDark text-xs"></i>
+                        <span id="nav-admin-label">Admin</span>
+                        <span id="admin-order-badge" class="hidden bg-vellora-pinkDark text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+                    </button>
+                </nav>
+
+                <!-- Tombol Aksi Cepat & Menu Mobile -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openOrderModal()" class="bg-vellora-pink hover:bg-vellora-pinkDark text-white text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-full shadow-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Pesan Cepat</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition" aria-label="Buka Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Navigasi Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-vellora-cream border-b border-vellora-sand px-4 pt-2 pb-5 space-y-2">
+            <a href="#beranda" onclick="switchView('store'); toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-vellora-beige">Beranda</a>
+            <a href="#katalog" onclick="switchView('store'); toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-vellora-beige">Katalog Kerudung</a>
+            <a href="#cara-pesan" onclick="switchView('store'); toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-vellora-beige">Cara Pemesanan</a>
+            <button onclick="handleAdminNavClick(); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold bg-vellora-beige text-vellora-dark flex items-center justify-between">
+                <span><i id="mobile-admin-icon" class="fa-solid fa-lock text-vellora-pinkDark mr-2"></i><span id="mobile-admin-label">Admin (Login)</span></span>
+                <span id="mobile-admin-badge" class="hidden bg-vellora-pinkDark text-white text-xs px-2 py-0.5 rounded-full">2</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= TAMPILAN UTAMA TOKO (STOREFRONT) ================= -->
+    <main id="store-view">
+        <!-- HERO SECTION -->
+        <section id="beranda" class="relative overflow-hidden bg-gradient-to-br from-vellora-beige via-vellora-cream to-vellora-pinkLight/60 py-14 sm:py-20 lg:py-24 border-b border-vellora-sand">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-vellora-sand text-xs font-semibold text-vellora-pinkDark shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-vellora-pinkDark animate-pulse"></span>
+                            Koleksi Daily & Kampus Terbaru 2026
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-vellora-dark leading-tight">
+                            Anggun & Nyaman di Setiap Langkah <span class="italic text-vellora-pinkDark">Muslimah Aktif.</span>
+                        </h1>
+                        <p class="text-vellora-muted text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Temukan berbagai pilihan kerudung berbahan adem, mudah dibentuk, modis untuk kuliah maupun aktivitas harian, dengan harga ramah di kantong mahasiswi.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#katalog" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-vellora-dark text-white font-semibold text-sm hover:bg-vellora-pinkDark transition shadow-md flex items-center justify-center gap-2">
+                                <span>Lihat Katalog</span>
+                                <i class="fa-solid fa-arrow-down text-xs"></i>
+                            </a>
+                            <button onclick="openOrderModal()" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-vellora-dark border border-vellora-sand font-semibold text-sm hover:bg-vellora-beige transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-green-600 text-base"></i>
+                                <span>Pesan via WhatsApp</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-vellora-sand/80 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <p class="font-serif text-xl sm:text-2xl font-bold text-vellora-dark">Adem</p>
+                                <p class="text-xs text-vellora-muted">Bahan Pilihan Nyaman</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-xl sm:text-2xl font-bold text-vellora-dark">25K–55K</p>
+                                <p class="text-xs text-vellora-muted">Harga Terjangkau</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-xl sm:text-2xl font-bold text-vellora-dark">Fast</p>
+                                <p class="text-xs text-vellora-muted">Order Mudah via WA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md">
+                            <div class="absolute -inset-3 bg-vellora-pink/25 rounded-[2rem] rotate-3"></div>
+                            <div class="relative bg-white p-6 rounded-[2rem] shadow-lg border border-vellora-sand">
+                                <div class="aspect-[4/3] rounded-2xl bg-gradient-to-b from-vellora-beige to-vellora-pinkLight flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                    <svg viewBox="0 0 240 180" class="w-48 h-48 drop-shadow-md">
+                                        <defs>
+                                            <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#E5B8C2" />
+                                                <stop offset="100%" stop-color="#C48B98" />
+                                            </linearGradient>
+                                            <linearGradient id="innerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#F5EFE6" />
+                                                <stop offset="100%" stop-color="#E6D8C7" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M120 18 C72 18, 46 58, 42 115 C39 145, 58 162, 85 165 L155 165 C182 162, 201 145, 198 115 C194 58, 168 18, 120 18 Z" fill="url(#hijabGrad)"/>
+                                        <path d="M52 118 Q120 148 188 118 C184 148 158 166 120 168 C82 166 56 148 52 118 Z" fill="#B57A87" opacity="0.55"/>
+                                        <ellipse cx="120" cy="76" rx="34" ry="42" fill="url(#innerGrad)"/>
+                                        <path d="M86 72 Q75 115 112 136 Q88 112 88 76 Z" fill="#D8A7B1"/>
+                                        <path d="M154 72 Q165 115 128 136 Q152 112 152 76 Z" fill="#D8A7B1"/>
+                                        <circle cx="120" cy="122" r="3.5" fill="#FAF8F5"/>
+                                    </svg>
+                                    <span class="mt-2 text-xs font-semibold tracking-wider uppercase text-vellora-pinkDark bg-white/90 px-3 py-1 rounded-full">Best Seller Kampus</span>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-serif text-lg font-bold text-vellora-dark">Pashmina Silk Premium</h3>
+                                        <p class="text-xs text-vellora-muted">Lembut, flowy & tidak mudah kusut</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="block font-bold text-vellora-pinkDark text-lg">Rp 45.000</span>
+                                        <button onclick="openOrderModal('pashmina-silk')" class="text-xs font-semibold underline text-vellora-dark hover:text-vellora-pinkDark">Pesan ini &rarr;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= KATALOG PRODUK SECTION ================= -->
+        <section id="katalog" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-vellora-pinkDark">Koleksi Pilihan</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-vellora-dark mt-1">Katalog Kerudung Vellora & Co</h2>
+                <p class="text-sm sm:text-base text-vellora-muted mt-2">
+                    Pilih model dan klik bulat warna pada kartu untuk melihat pratinjau warna sebelum memesan.
+                </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-vellora-sand shadow-sm mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+                <div id="category-filters" class="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto">
+                    <button onclick="setCategory('Semua')" data-cat="Semua" class="cat-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-vellora-dark text-white transition">
+                        Semua Model
+                    </button>
+                    <button onclick="setCategory('Pashmina')" data-cat="Pashmina" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition">
+                        Pashmina
+                    </button>
+                    <button onclick="setCategory('Segi Empat')" data-cat="Segi Empat" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition">
+                        Segi Empat
+                    </button>
+                    <button onclick="setCategory('Bergo')" data-cat="Bergo" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition">
+                        Bergo
+                    </button>
+                </div>
+
+                <div class="relative w-full md:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-vellora-muted text-sm"></i>
+                    <input type="text" id="search-input" oninput="renderCatalog()" placeholder="Cari nama atau bahan kerudung..."
+                        class="w-full pl-10 pr-4 py-2.5 rounded-full bg-vellora-cream border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark transition">
+                </div>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
+
+            <div id="empty-catalog-state" class="hidden text-center py-16 bg-white rounded-3xl border border-vellora-sand">
+                <i class="fa-regular fa-face-frown text-4xl text-vellora-pink mb-3"></i>
+                <h3 class="font-serif text-xl font-bold text-vellora-dark">Kerudung tidak ditemukan</h3>
+                <p class="text-sm text-vellora-muted mt-1">Coba gunakan kata kunci lain atau tampilkan semua kategori.</p>
+                <button onclick="resetFilters()" class="mt-4 px-5 py-2 rounded-full bg-vellora-pink text-white text-sm font-semibold hover:bg-vellora-pinkDark transition">
+                    Reset Pencarian
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= CARA PEMESANAN SECTION ================= -->
+        <section id="cara-pesan" class="bg-vellora-beige/80 py-16 border-y border-vellora-sand">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-vellora-pinkDark">Praktis & Cepat</span>
+                    <h2 class="font-serif text-3xl font-bold text-vellora-dark mt-1">Cara Pemesanan</h2>
+                    <p class="text-sm text-vellora-muted mt-2">Hanya 3 langkah mudah untuk mendapatkan kerudung favoritmu tanpa perlu datang ke toko.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="bg-white p-7 rounded-3xl border border-vellora-sand shadow-sm relative">
+                        <div class="w-12 h-12 rounded-2xl bg-vellora-pinkLight text-vellora-pinkDark font-serif font-bold text-xl flex items-center justify-center mb-4">1</div>
+                        <h3 class="font-serif text-xl font-bold text-vellora-dark mb-2">Pilih Katalog & Warna</h3>
+                        <p class="text-sm text-vellora-muted leading-relaxed">
+                            Jelajahi katalog kerudung Vellora & Co, cek ketersediaan stok, lalu pilih warna yang sesuai dengan gaya berpakaianmu.
+                        </p>
+                    </div>
+                    <div class="bg-white p-7 rounded-3xl border border-vellora-sand shadow-sm relative">
+                        <div class="w-12 h-12 rounded-2xl bg-vellora-pinkLight text-vellora-pinkDark font-serif font-bold text-xl flex items-center justify-center mb-4">2</div>
+                        <h3 class="font-serif text-xl font-bold text-vellora-dark mb-2">Isi Form Pemesanan</h3>
+                        <p class="text-sm text-vellora-muted leading-relaxed">
+                            Klik tombol <strong>Pesan Sekarang</strong>, isi nama lengkapmu, jenis kerudung, warna, jumlah, serta alamat pengiriman.
+                        </p>
+                    </div>
+                    <div class="bg-white p-7 rounded-3xl border border-vellora-sand shadow-sm relative">
+                        <div class="w-12 h-12 rounded-2xl bg-vellora-pinkLight text-vellora-pinkDark font-serif font-bold text-xl flex items-center justify-center mb-4">3</div>
+                        <h3 class="font-serif text-xl font-bold text-vellora-dark mb-2">Kirim ke WhatsApp Admin</h3>
+                        <p class="text-sm text-vellora-muted leading-relaxed">
+                            Format pesanan otomatis tersusun dan langsung dikirim ke WhatsApp admin kami untuk konfirmasi total ongkir & pengiriman.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= PANEL ADMIN TERPROTEKSI (CRUD LENGKAP) ================= -->
+    <section id="admin-view" class="hidden py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-vellora-sand mb-8">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold mb-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Sesi Terautentikasi: admin@vellora.co</span>
+                </div>
+                <h1 class="font-serif text-3xl font-bold text-vellora-dark">Dashboard Admin Vellora & Co</h1>
+                <p class="text-sm text-vellora-muted">Kelola CRUD barang kerudung, varian warna, stok real-time, serta verifikasi pesanan pelanggan.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button onclick="openProductCrudModal()" class="px-5 py-2.5 rounded-full bg-vellora-pinkDark hover:bg-vellora-dark text-white text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-plus text-xs"></i>
+                    <span>Tambah Kerudung Baru</span>
+                </button>
+                <button onclick="openResetConfirmModal()" class="px-4 py-2.5 rounded-full bg-white text-vellora-muted border border-vellora-sand text-xs sm:text-sm font-semibold hover:bg-vellora-beige hover:text-vellora-dark transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-left text-xs"></i>
+                    <span>Reset Data Awal</span>
+                </button>
+                <button onclick="switchView('store')" class="px-4 py-2.5 rounded-full bg-vellora-beige text-vellora-dark border border-vellora-sand text-xs sm:text-sm font-semibold hover:bg-vellora-sand transition flex items-center gap-2">
+                    <i class="fa-solid fa-store text-xs"></i>
+                    <span>Etalase</span>
+                </button>
+                <button onclick="logoutAdmin()" class="px-4 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-right-from-bracket text-xs"></i>
+                    <span>Keluar</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-5 rounded-2xl border border-vellora-sand shadow-sm">
+                <span class="text-xs text-vellora-muted font-medium">Total Model Kerudung</span>
+                <p id="stat-total-products" class="font-serif text-2xl font-bold text-vellora-dark mt-1">6</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-vellora-sand shadow-sm">
+                <span class="text-xs text-vellora-muted font-medium">Total Unit Stok</span>
+                <p id="stat-total-stock" class="font-serif text-2xl font-bold text-emerald-600 mt-1">78 pcs</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-vellora-sand shadow-sm">
+                <span class="text-xs text-vellora-muted font-medium">Pesanan Menunggu</span>
+                <p id="stat-pending-orders" class="font-serif text-2xl font-bold text-amber-600 mt-1">1</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-vellora-sand shadow-sm">
+                <span class="text-xs text-vellora-muted font-medium">Estimasi Pendapatan</span>
+                <p id="stat-total-revenue" class="font-serif text-xl sm:text-2xl font-bold text-vellora-pinkDark mt-1">Rp 105.000</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 mb-6 border-b border-vellora-sand pb-3">
+            <button type="button" onclick="setAdminTab('products')" id="tab-btn-products" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-vellora-dark text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Data Barang Kerudung (CRUD)</span>
+            </button>
+            <button type="button" onclick="setAdminTab('orders')" id="tab-btn-orders" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-vellora-beige text-vellora-dark hover:bg-vellora-sand transition flex items-center gap-2">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Pesanan Masuk</span>
+                <span id="tab-orders-count" class="px-2 py-0.5 text-[10px] rounded-full bg-vellora-pinkDark text-white">2</span>
+            </button>
+        </div>
+
+        <div id="admin-tab-products" class="bg-white p-6 rounded-3xl border border-vellora-sand shadow-sm space-y-5">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-serif text-xl font-bold text-vellora-dark">Daftar Katalog Barang Kerudung</h2>
+                    <p class="text-xs text-vellora-muted">Kelola detail produk, varian warna, harga, serta stok ketersediaan secara real-time.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                    <div class="flex items-center gap-1.5 bg-vellora-beige/80 border border-vellora-sand rounded-full px-3 py-1">
+                        <i class="fa-brands fa-whatsapp text-green-600 text-xs"></i>
+                        <input type="tel" id="admin-wa-setting-input" placeholder="6281234567890"
+                            class="w-32 sm:w-36 bg-transparent text-xs font-semibold text-vellora-dark focus:outline-none">
+                        <button type="button" onclick="saveAdminWhatsappNumber()"
+                            class="px-2.5 py-1 rounded-full bg-green-600 hover:bg-green-700 text-white text-[10px] font-bold transition">
+                            Simpan WA
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-vellora-muted text-xs"></i>
+                        <input type="text" id="admin-prod-search" oninput="renderAdminPanel()" placeholder="Cari nama/bahan kerudung..."
+                            class="w-full sm:w-56 pl-9 pr-3.5 py-2 rounded-full bg-vellora-cream border border-vellora-sand text-xs focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                    <select id="admin-prod-cat-filter" onchange="renderAdminPanel()"
+                        class="px-3.5 py-2 rounded-full bg-vellora-cream border border-vellora-sand text-xs font-semibold focus:outline-none focus:border-vellora-pinkDark">
+                        <option value="Semua">Semua Kategori</option>
+                        <option value="Pashmina">Pashmina</option>
+                        <option value="Segi Empat">Segi Empat</option>
+                        <option value="Bergo">Bergo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[840px]">
+                    <thead>
+                        <tr class="border-b border-vellora-sand text-[11px] uppercase tracking-wider text-vellora-muted bg-vellora-beige/50">
+                            <th class="py-3.5 px-3 rounded-tl-xl">Gambar</th>
+                            <th class="py-3.5 px-3">Produk Kerudung</th>
+                            <th class="py-3.5 px-3">Kategori & Bahan</th>
+                            <th class="py-3.5 px-3">Varian Warna</th>
+                            <th class="py-3.5 px-3">Harga</th>
+                            <th class="py-3.5 px-3 text-center">Kontrol Stok</th>
+                            <th class="py-3.5 px-3">Status</th>
+                            <th class="py-3.5 px-3 text-right rounded-tr-xl">Aksi CRUD</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-product-table" class="divide-y divide-vellora-sand/60 text-sm"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="admin-tab-orders" class="hidden bg-white p-6 rounded-3xl border border-vellora-sand shadow-sm space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h2 class="font-serif text-xl font-bold text-vellora-dark">Daftar Pesanan Masuk Pelanggan</h2>
+                    <p class="text-xs text-vellora-muted">Pantau pesanan dari etalase, perbarui status pengiriman, atau hubungi pembeli via WhatsApp.</p>
+                </div>
+                <select id="admin-order-filter" onchange="renderAdminPanel()" class="text-xs font-semibold px-4 py-2 rounded-full border border-vellora-sand bg-vellora-cream focus:outline-none">
+                    <option value="Semua">Semua Status Pesanan</option>
+                    <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Dikirim">Dikirim</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
+            </div>
+            <div id="admin-orders-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- ================= MODAL CREATE / UPDATE BARANG KERUDUNG (CRUD) ================= -->
+    <div id="crud-product-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-vellora-dark/65 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-vellora-cream w-full max-w-2xl rounded-3xl border border-vellora-sand shadow-2xl overflow-hidden animate-fade-in my-8">
+            <div class="bg-gradient-to-r from-vellora-beige to-vellora-pinkLight px-6 py-4 border-b border-vellora-sand flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-vellora-pinkDark text-white flex items-center justify-center shadow-sm">
+                        <i id="crud-modal-icon" class="fa-solid fa-plus"></i>
+                    </div>
+                    <div>
+                        <h3 id="crud-modal-title" class="font-serif text-xl font-bold text-vellora-dark">Tambah Kerudung Baru</h3>
+                        <p id="crud-modal-subtitle" class="text-xs text-vellora-muted">Lengkapi detail produk kerudung beserta varian warnanya</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeProductCrudModal()" class="w-9 h-9 rounded-full bg-white text-vellora-dark hover:bg-vellora-pink hover:text-white transition flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="crud-product-form" onsubmit="handleSaveProductCrud(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                <input type="hidden" id="crud-prod-id" value="">
+                <input type="hidden" id="crud-prod-image" value="">
+
+                <div id="crud-error-box" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span id="crud-error-text">Mohon lengkapi seluruh data produk dan minimal 1 varian warna.</span>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-vellora-beige/80 border border-vellora-sand space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-vellora-dark">Slot Gambar Kerudung</label>
+                            <span class="text-[11px] text-vellora-muted">Unggah foto (JPG, PNG, WEBP maks. 1.5MB), masukkan URL, atau pilih preset sampel</span>
+                        </div>
+                        <button type="button" onclick="clearCrudProductImage()" class="px-3 py-1 rounded-full bg-white hover:bg-red-50 text-vellora-muted hover:text-red-600 border border-vellora-sand text-[11px] font-semibold transition flex items-center gap-1">
+                            <i class="fa-regular fa-trash-can"></i>
+                            <span>Hapus Gambar</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                        <div class="sm:col-span-4">
+                            <div id="crud-image-preview-box" class="hijab-photo-slot w-full rounded-2xl bg-white border border-vellora-sand overflow-hidden relative flex flex-col items-center justify-center p-2 shadow-xs">
+                                <img id="crud-image-preview-img" src="" alt="Pratinjau kerudung" class="hidden w-full h-full object-cover rounded-xl" onerror="handleCrudPreviewImgError()">
+                                <div id="crud-image-placeholder" class="flex flex-col items-center justify-center text-center p-2">
+                                    <svg id="crud-placeholder-svg" viewBox="0 0 200 160" class="w-24 h-20 drop-shadow-xs">
+                                        <path d="M100 16 C60 16, 38 50, 35 98 C32 124, 48 140, 72 143 L128 143 C152 140, 168 124, 165 98 C162 50, 140 16, 100 16 Z" fill="#D8A7B1"/>
+                                        <path d="M44 102 Q100 128 156 102 C152 128 132 143 100 145 C68 143 48 128 44 102 Z" fill="#B57A87" opacity="0.6"/>
+                                        <ellipse cx="100" cy="66" rx="28" ry="35" fill="#FAF8F5"/>
+                                    </svg>
+                                    <span id="crud-image-status-label" class="text-[10px] font-semibold text-vellora-muted mt-1">Slot Ilustrasi Default</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-8 space-y-2.5">
+                            <div id="crud-dropzone"
+                                onclick="document.getElementById('crud-image-file').click()"
+                                ondragover="handleCrudDragOver(event)"
+                                ondragleave="handleCrudDragLeave(event)"
+                                ondrop="handleCrudDrop(event)"
+                                class="cursor-pointer border-2 border-dashed border-vellora-sand hover:border-vellora-pinkDark bg-white/90 rounded-2xl p-3 text-center transition">
+                                <input type="file" id="crud-image-file" accept="image/jpeg,image/png,image/webp,image/gif" onchange="handleCrudFileSelect(event)" class="hidden">
+                                <i class="fa-solid fa-cloud-arrow-up text-vellora-pinkDark text-lg mb-1"></i>
+                                <p class="text-xs font-semibold text-vellora-dark">Klik unggah atau tarik & lepas foto kerudung</p>
+                                <p class="text-[10px] text-vellora-muted">Format JPG, PNG, WEBP • Disarankan rasio portrait / 4:5</p>
+                            </div>
+
+                            <div>
+                                <label for="crud-image-url" class="block text-[11px] font-bold text-vellora-dark mb-1">Atau Masukkan URL Gambar</label>
+                                <input type="url" id="crud-image-url" oninput="handleCrudUrlInput(this.value)" placeholder="https://example.com/foto-kerudung.jpg"
+                                    class="w-full px-3 py-2 rounded-xl bg-white border border-vellora-sand text-xs focus:outline-none focus:border-vellora-pinkDark">
+                            </div>
+
+                            <div class="pt-0.5">
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-vellora-muted block mb-1.5">Preset Sampel Cepat:</span>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <button type="button" onclick="applySampleHijabImage('pashmina-pink')" class="px-2.5 py-1 rounded-full bg-white hover:bg-vellora-pinkLight border border-vellora-sand text-[10px] font-semibold text-vellora-dark transition">
+                                        Sampel Pashmina Pink
+                                    </button>
+                                    <button type="button" onclick="applySampleHijabImage('voal-beige')" class="px-2.5 py-1 rounded-full bg-white hover:bg-vellora-pinkLight border border-vellora-sand text-[10px] font-semibold text-vellora-dark transition">
+                                        Sampel Voal Beige
+                                    </button>
+                                    <button type="button" onclick="applySampleHijabImage('bergo-cream')" class="px-2.5 py-1 rounded-full bg-white hover:bg-vellora-pinkLight border border-vellora-sand text-[10px] font-semibold text-vellora-dark transition">
+                                        Sampel Bergo Cream
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="crud-prod-name" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Nama Produk Kerudung <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="crud-prod-name" placeholder="Contoh: Pashmina Silk Premium" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                    <div>
+                        <label for="crud-prod-category" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Kategori <span class="text-red-500">*</span>
+                        </label>
+                        <select id="crud-prod-category" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                            <option value="Pashmina">Pashmina</option>
+                            <option value="Segi Empat">Segi Empat</option>
+                            <option value="Bergo">Bergo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="crud-prod-material" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Jenis Bahan <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="crud-prod-material" placeholder="Contoh: Ceruty Babydoll / Voal Premium" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                    <div>
+                        <label for="crud-prod-badge" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Badge / Label Produk
+                        </label>
+                        <select id="crud-prod-badge"
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                            <option value="">Tanpa Label</option>
+                            <option value="Best Seller">Best Seller</option>
+                            <option value="Favorit">Favorit</option>
+                            <option value="Baru">Baru</option>
+                            <option value="Eksklusif">Eksklusif</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="crud-prod-price" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Harga (Rp) <span class="text-red-500">*</span>
+                        </label>
+                        <input type="number" id="crud-prod-price" min="1000" step="500" placeholder="35000" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                    <div>
+                        <label for="crud-prod-stock" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Jumlah Stok (Pcs) <span class="text-red-500">*</span>
+                        </label>
+                        <input type="number" id="crud-prod-stock" min="0" placeholder="20" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-vellora-beige/80 border border-vellora-sand space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-vellora-dark">
+                                Varian Warna Kerudung <span class="text-red-500">*</span>
+                            </label>
+                            <span class="text-[11px] text-vellora-muted">Tambahkan nama warna & pilih kode warna untuk pratinjau katalog</span>
+                        </div>
+                        <button type="button" onclick="addCrudColorRow()" class="px-3.5 py-1.5 rounded-full bg-vellora-dark text-white text-xs font-semibold hover:bg-vellora-pinkDark transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                            <span>Tambah Warna</span>
+                        </button>
+                    </div>
+                    <div id="crud-color-list" class="space-y-2.5"></div>
+                </div>
+
+                <div>
+                    <label for="crud-prod-desc" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                        Deskripsi Singkat <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="crud-prod-desc" rows="2" placeholder="Jelaskan keunggulan bahan, kenyamanan, dan cocok dipakai untuk acara apa..." required
+                        class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark"></textarea>
+                </div>
+
+                <div class="pt-2 flex items-center justify-end gap-3 border-t border-vellora-sand">
+                    <button type="button" onclick="closeProductCrudModal()" class="px-5 py-2.5 rounded-full bg-vellora-beige text-vellora-dark text-xs sm:text-sm font-semibold hover:bg-vellora-sand transition">
+                        Batal
+                    </button>
+                    <button type="submit" id="crud-submit-btn" class="px-6 py-2.5 rounded-full bg-vellora-pinkDark hover:bg-vellora-dark text-white text-xs sm:text-sm font-semibold shadow-md transition flex items-center gap-2">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>Simpan Produk</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL KONFIRMASI HAPUS / RESET ================= -->
+    <div id="confirm-dialog-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-vellora-dark/65 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-vellora-cream w-full max-w-md rounded-3xl border border-vellora-sand shadow-2xl overflow-hidden animate-fade-in p-6 text-center space-y-4">
+            <div id="confirm-dialog-icon-wrap" class="w-14 h-14 rounded-full bg-red-100 text-red-600 mx-auto flex items-center justify-center text-2xl">
+                <i id="confirm-dialog-icon" class="fa-regular fa-trash-can"></i>
+            </div>
+            <div>
+                <h3 id="confirm-dialog-title" class="font-serif text-xl font-bold text-vellora-dark">Hapus Barang Kerudung?</h3>
+                <p id="confirm-dialog-message" class="text-sm text-vellora-muted mt-1.5 leading-relaxed">
+                    Produk ini akan dihapus secara permanen dari tabel admin dan etalase pelanggan.
+                </p>
+            </div>
+            <div class="flex items-center justify-center gap-3 pt-2">
+                <button type="button" onclick="closeConfirmDialog()" class="flex-1 py-2.5 rounded-full bg-vellora-beige text-vellora-dark text-sm font-semibold hover:bg-vellora-sand transition">
+                    Batal
+                </button>
+                <button type="button" id="confirm-dialog-action-btn" class="flex-1 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm font-semibold shadow-sm transition">
+                    Ya, Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL LOGIN PANEL ADMIN ================= -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-vellora-dark/65 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-vellora-cream w-full max-w-md rounded-3xl border border-vellora-sand shadow-2xl overflow-hidden animate-fade-in">
+            <div class="bg-gradient-to-r from-vellora-beige to-vellora-pinkLight px-6 py-5 border-b border-vellora-sand flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-vellora-pinkDark text-white flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-vellora-dark">Login Admin</h3>
+                        <p class="text-xs text-vellora-muted">Area khusus pengelola toko Vellora & Co</p>
+                    </div>
+                </div>
+                <button onclick="closeLoginModal()" class="w-9 h-9 rounded-full bg-white text-vellora-dark hover:bg-vellora-pink hover:text-white transition flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="p-6 space-y-4">
+                <div id="login-error-box" class="hidden p-3.5 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-exclamation mt-0.5"></i>
+                    <span id="login-error-text">Username/Email atau Password tidak sesuai.</span>
+                </div>
+
+                <div>
+                    <label for="admin-username" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                        Username / Email Admin
+                    </label>
+                    <div class="relative">
+                        <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-vellora-muted text-sm"></i>
+                        <input type="text" id="admin-username" placeholder="admin@vellora.co" required
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="admin-password" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                        Password
+                    </label>
+                    <div class="relative">
+                        <i class="fa-solid fa-key absolute left-3.5 top-1/2 -translate-y-1/2 text-vellora-muted text-sm"></i>
+                        <input type="password" id="admin-password" placeholder="Masukkan password admin" required
+                            class="w-full pl-10 pr-11 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-vellora-muted hover:text-vellora-dark p-1" aria-label="Tampilkan atau sembunyikan password">
+                            <i id="password-eye-icon" class="fa-regular fa-eye text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="w-full py-3.5 rounded-full bg-vellora-dark hover:bg-vellora-pinkDark text-white font-semibold text-sm shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Masuk ke Admin</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL FORM PEMESANAN WHATSAPP ================= -->
+    <div id="order-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-vellora-dark/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-vellora-cream w-full max-w-lg rounded-3xl border border-vellora-sand shadow-2xl overflow-hidden animate-fade-in my-8">
+            <div class="bg-vellora-beige px-6 py-4 border-b border-vellora-sand flex items-center justify-between">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-vellora-dark">Form Pemesanan Vellora & Co</h3>
+                    <p class="text-xs text-vellora-muted">Lengkapi data di bawah untuk langsung terhubung ke WhatsApp</p>
+                </div>
+                <button onclick="closeOrderModal()" class="w-9 h-9 rounded-full bg-white text-vellora-dark hover:bg-vellora-pink hover:text-white transition flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="whatsapp-order-form" onsubmit="handleOrderSubmit(event)" class="p-6 space-y-4">
+                <div id="form-error-box" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span id="form-error-text">Mohon lengkapi nama dan jenis kerudung terlebih dahulu.</span>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-vellora-beige/80 border border-vellora-sand flex items-center gap-4">
+                    <div class="w-20 h-24 rounded-xl bg-white border border-vellora-sand overflow-hidden shrink-0 flex items-center justify-center relative">
+                        <img id="order-preview-img" src="" alt="Pratinjau produk pesanan" class="hidden w-full h-full object-cover" onerror="handleOrderPreviewImgError()">
+                        <div id="order-preview-svg-wrap" class="w-full h-full flex items-center justify-center p-1">
+                            <svg id="order-preview-svg" viewBox="0 0 200 160" class="w-16 h-16">
+                                <path id="order-svg-hijab" d="M100 16 C60 16, 38 50, 35 98 C32 124, 48 140, 72 143 L128 143 C152 140, 168 124, 165 98 C162 50, 140 16, 100 16 Z" fill="#D8A7B1"/>
+                                <path id="order-svg-shadow" d="M44 102 Q100 128 156 102 C152 128 132 143 100 145 C68 143 48 128 44 102 Z" fill="#B57A87" opacity="0.6"/>
+                                <ellipse cx="100" cy="66" rx="28" ry="35" fill="#FAF8F5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-vellora-pinkDark block">Item Terpilih</span>
+                        <h4 id="order-preview-title" class="font-serif text-base font-bold text-vellora-dark truncate">Pashmina Silk Premium</h4>
+                        <p id="order-preview-meta" class="text-xs text-vellora-muted mt-0.5">Warna: Dusty Pink • Rp 45.000</p>
+                        <span id="order-preview-slot-badge" class="inline-block mt-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white text-vellora-dark border border-vellora-sand/70">
+                            Ilustrasi Varian
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="cust-name" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Nama Lengkap <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="cust-name" placeholder="Contoh: Aulia Rahma" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                    <div>
+                        <label for="cust-wa" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            No. WhatsApp <span class="text-red-500">*</span>
+                        </label>
+                        <input type="tel" id="cust-wa" placeholder="Contoh: 081234567890" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cust-product" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                        Jenis Kerudung <span class="text-red-500">*</span>
+                    </label>
+                    <select id="cust-product" onchange="updateModalColorOptions(false)" required
+                        class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="cust-color" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Pilihan Warna <span class="text-red-500">*</span>
+                        </label>
+                        <select id="cust-color" onchange="updateOrderTotalPreview()" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cust-qty" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                            Jumlah (Pcs) <span class="text-red-500">*</span>
+                        </label>
+                        <input type="number" id="cust-qty" min="1" max="50" value="1" oninput="updateOrderTotalPreview()" required
+                            class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cust-address" class="block text-xs font-bold uppercase tracking-wider text-vellora-dark mb-1.5">
+                        Alamat Pengiriman <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="cust-address" rows="2" placeholder="Contoh: Jl. Sukabirus No. 12, Dayeuhkolot, Bandung" required
+                        class="w-full px-4 py-2.5 rounded-xl bg-white border border-vellora-sand text-sm focus:outline-none focus:border-vellora-pinkDark"></textarea>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-vellora-beige border border-vellora-sand flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-vellora-muted block">Estimasi Total Produk</span>
+                        <span id="modal-stock-info" class="text-[11px] font-semibold text-emerald-700">Stok Tersedia</span>
+                    </div>
+                    <span id="modal-total-price" class="font-serif text-xl font-bold text-vellora-dark">Rp 45.000</span>
+                </div>
+
+                <button type="submit" id="submit-wa-btn" class="w-full py-3.5 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold text-sm shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Kirim Pesanan ke WhatsApp</span>
+                </button>
+            </form>
+
+            <div id="wa-preview-box" class="hidden p-6 pt-0 space-y-4">
+                <div class="p-4 rounded-2xl bg-[#E7FFDB] border border-green-300 text-vellora-dark text-xs space-y-2">
+                    <div class="flex items-center justify-between font-bold text-green-800">
+                        <span><i class="fa-brands fa-whatsapp mr-1"></i> Pesan Siap Dikirim ke Admin (<span id="wa-target-number-label">+6281234567890</span>):</span>
+                        <button type="button" onclick="copyWhatsAppMessage()" class="underline hover:text-green-950">Salin Teks</button>
+                    </div>
+                    <pre id="wa-message-preview" class="whitespace-pre-wrap font-sans text-xs leading-relaxed text-gray-800 bg-white/70 p-3 rounded-xl"></pre>
+                </div>
+                <div class="flex gap-3">
+                    <a id="wa-direct-link" href="https://wa.me/6287867268046" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white text-center text-xs font-bold transition">
+                        Buka Aplikasi WhatsApp &rarr;
+                    </a>
+                    <button type="button" onclick="closeOrderModal()" class="px-5 py-3 rounded-full bg-vellora-beige text-vellora-dark text-xs font-semibold hover:bg-vellora-sand transition">
+                        Selesai
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 hidden bg-vellora-dark text-white px-5 py-3 rounded-2xl shadow-xl text-sm font-medium flex items-center gap-3 animate-fade-in">
+        <i class="fa-solid fa-circle-check text-vellora-pink"></i>
+        <span id="toast-message">Berhasil diperbarui!</span>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-vellora-dark text-vellora-cream pt-14 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="brand-logo-mark h-12 w-auto px-2.5 py-1 rounded-2xl bg-vellora-cream text-vellora-dark shadow-xs">
+                            <svg viewBox="0 0 280 120" class="h-full w-auto" role="img" aria-label="Logo Vellora &.CO">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M58 26 C40 22, 26 34, 30 48 C33 58, 46 60, 56 52 C68 42, 86 24, 98 15 C100 13, 101 16, 97 23 C81 51, 63 82, 50 103 C47 107, 44 105, 46 98 C50 82, 55 64, 56 52" stroke-width="2.4"/>
+                                    <path d="M99 17 C84 45, 66 77, 50 103" stroke-width="4.6"/>
+                                    <path d="M50 103 C60 88, 69 77, 78 72" stroke-width="3.2"/>
+                                    <path d="M52 91 C51 102, 62 106, 76 100 C102 88, 146 86, 188 94 C194 95, 198 99, 200 104" stroke-width="3.6"/>
+                                </g>
+                                <text x="74" y="77" fill="currentColor" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="500" letter-spacing="3.5">ELLORA</text>
+                                <text x="195" y="45" fill="currentColor" font-family="'Playfair Display', Georgia, serif" font-size="13.5" font-weight="500" letter-spacing="1.5">&amp;.CO</text>
+                            </svg>
+                        </span>
+                        <span class="font-serif text-2xl font-bold">Vellora &amp; Co</span>
+                    </div>
+                    <p class="text-sm text-vellora-sand/80 leading-relaxed">
+                        Menghadirkan koleksi kerudung nyaman, modis, dan terjangkau untuk menemani aktivitas harian muslimah Indonesia.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-semibold text-vellora-pink">Layanan Pelanggan</h4>
+                    <ul class="text-sm text-vellora-sand/80 space-y-2">
+                        <li><i class="fa-regular fa-clock mr-2 text-vellora-pink"></i>Senin – Sabtu: 08.00 – 21.00 WIB</li>
+                        <li><i class="fa-solid fa-truck-fast mr-2 text-vellora-pink"></i>Pengiriman setiap hari pukul 16.00 WIB</li>
+                        <li><i class="fa-solid fa-location-dot mr-2 text-vellora-pink"></i>Bandung, Jawa Barat</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-semibold text-vellora-pink">Ikuti & Hubungi Kami</h4>
+                    <p class="text-sm text-vellora-sand/80">Dapatkan inspirasi styling OOTD kampus & promo terbaru:</p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-vellora-pink hover:text-vellora-dark flex items-center justify-center transition" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-vellora-pink hover:text-vellora-dark flex items-center justify-center transition" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok text-lg"></i>
+                        </a>
+                        <button onclick="openOrderModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-green-600 text-white flex items-center justify-center transition" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6 text-center text-xs text-vellora-sand/60">
+                &copy; 2026 Vellora & Co. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nomor WhatsApp Admin Vellora & Co (Format Internasional tanpa + atau spasi)
+        const DEFAULT_ADMIN_WHATSAPP_NUMBER = "6287867268046";
+        const STORAGE_ADMIN_WA_KEY = "vellora_admin_wa_v1";
+
+        function normalizeWhatsappNumber(rawNum) {
+            let digits = String(rawNum || "").replace(/[^0-9]/g, "");
+            if (!digits) return "";
+            if (digits.startsWith("0")) {
+                digits = "62" + digits.slice(1);
+            } else if (digits.startsWith("8")) {
+                digits = "62" + digits;
+            }
+            return digits;
+        }
+
+        function loadAdminWhatsappNumber() {
+            try {
+                const saved = localStorage.getItem(STORAGE_ADMIN_WA_KEY);
+                const normalized = normalizeWhatsappNumber(saved);
+                if (normalized.length >= 10) return normalized;
+            } catch (e) {
+                console.warn("Gagal memuat nomor WA admin:", e);
+            }
+            return DEFAULT_ADMIN_WHATSAPP_NUMBER;
+        }
+
+        let ADMIN_WHATSAPP_NUMBER = loadAdminWhatsappNumber();
+
+        function syncAdminWhatsappSettingInput() {
+            const input = document.getElementById("admin-wa-setting-input");
+            if (input) {
+                input.value = ADMIN_WHATSAPP_NUMBER;
+            }
+        }
+
+        function saveAdminWhatsappNumber() {
+            const input = document.getElementById("admin-wa-setting-input");
+            if (!input) return;
+            const normalized = normalizeWhatsappNumber(input.value);
+            if (normalized.length < 10) {
+                showToast("Format nomor WA tidak valid! Contoh: 6281234567890 atau 081234567890");
+                return;
+            }
+            ADMIN_WHATSAPP_NUMBER = normalized;
+            input.value = normalized;
+            try {
+                localStorage.setItem(STORAGE_ADMIN_WA_KEY, normalized);
+            } catch (e) {
+                console.warn("Gagal menyimpan nomor WA admin:", e);
+            }
+            showToast(`Nomor WhatsApp admin terhubung ke +${normalized}`);
+        }
+
+        function buildWhatsappOrderUrl(rawNumber, messageText) {
+            const targetWa = normalizeWhatsappNumber(rawNumber) || DEFAULT_ADMIN_WHATSAPP_NUMBER;
+            return `https://wa.me/${targetWa}?text=${encodeURIComponent(messageText)}`;
+        }
+
+        function syncWaDirectLink(waUrl) {
+            const linkEl = document.getElementById("wa-direct-link");
+            if (linkEl && waUrl) {
+                linkEl.href = waUrl;
+            }
+        }
+
+        function triggerWhatsappRedirect(waUrl, targetWa) {
+            syncWaDirectLink(waUrl);
+            try {
+                const openedWin = window.open(waUrl, "_blank", "noopener,noreferrer");
+                if (openedWin) {
+                    showToast(`Membuka WhatsApp ke +${targetWa}...`);
+                    return;
+                }
+            } catch (err) {
+                console.warn("window.open diblokir:", err);
+            }
+            showToast("Klik tombol 'Buka Aplikasi WhatsApp' di bawah untuk membuka WhatsApp.");
+        }
+
+        // Kredensial Autentikasi Admin & Kunci Penyimpanan
+        const ADMIN_CREDENTIALS = {
+            email: "admin@vellora.co",
+            username: "vellora&co",
+            password: "vellora26"
+        };
+        const ADMIN_SESSION_KEY = "vellora_admin_authenticated";
+        const STORAGE_PRODUCTS_KEY = "vellora_products_v2";
+        const STORAGE_ORDERS_KEY = "vellora_orders_v2";
+
+        const DEFAULT_PRODUCTS = [
+            {
+                id: "pashmina-silk",
+                name: "Pashmina Silk Premium",
+                category: "Pashmina",
+                material: "Cradenza Silk Glossy",
+                badge: "Best Seller",
+                price: 45000,
+                stock: 18,
+                image: "",
+                description: "Tekstur lembut berkilau elegan, jatuh sempurna, dan tidak licin saat dipakai ke kampus maupun acara formal.",
+                colors: [
+                    { name: "Dusty Pink", hex: "#D8A7B1" },
+                    { name: "Cream Latte", hex: "#E6D5C3" },
+                    { name: "Rosewood", hex: "#B57A87" },
+                    { name: "Espresso", hex: "#5C4742" }
+                ],
+                selectedColorIndex: 0
+            },
+            {
+                id: "voal-paris",
+                name: "Voal Paris Premium",
+                category: "Segi Empat",
+                material: "Katun Voal Paris Halus",
+                badge: "Favorit",
+                price: 30000,
+                stock: 28,
+                image: "",
+                description: "Kerudung segi empat andalan mahasiswi. Tegak di dahi, ringan, adem, dan tidak menerawang.",
+                colors: [
+                    { name: "Warm Beige", hex: "#DECBB7" },
+                    { name: "Soft Blush", hex: "#EBC3CB" },
+                    { name: "Mocca", hex: "#9E8272" },
+                    { name: "Charcoal", hex: "#4A4444" }
+                ],
+                selectedColorIndex: 0
+            },
+            {
+                id: "pashmina-ceruty",
+                name: "Pashmina Ceruty Babydoll",
+                category: "Pashmina",
+                material: "Ceruty Babydoll Armany",
+                badge: "",
+                price: 38000,
+                stock: 4,
+                image: "",
+                description: "Bahan bertekstur pasir lembut yang sangat mudah dibentuk draping cantik dan jatuh anggun.",
+                colors: [
+                    { name: "Oatmeal", hex: "#DFD7CC" },
+                    { name: "Mauve Pink", hex: "#C88EA7" },
+                    { name: "Sage Olive", hex: "#9BA38E" },
+                    { name: "Black", hex: "#2E2B2B" }
+                ],
+                selectedColorIndex: 0
+            },
+            {
+                id: "bergo-jersey",
+                name: "Bergo Instan Jersey",
+                category: "Bergo",
+                material: "Jersey Korea Premium",
+                badge: "Baru",
+                price: 35000,
+                stock: 15,
+                image: "",
+                description: "Praktis langsung pakai dalam 5 detik! Adem, elastis, dengan pet antem (anti tembem) yang rapi.",
+                colors: [
+                    { name: "Dusty Rose", hex: "#CE939F" },
+                    { name: "Vanilla Cream", hex: "#F2E9DC" },
+                    { name: "Hazelnut", hex: "#AC8A73" }
+                ],
+                selectedColorIndex: 0
+            },
+            {
+                id: "voal-motif",
+                name: "Voal Motif Eksklusif",
+                category: "Segi Empat",
+                material: "Voal Ultrafine Lasercut",
+                badge: "Eksklusif",
+                price: 55000,
+                stock: 9,
+                image: "",
+                description: "Motif floral minimalis khas Vellora & Co dengan pinggiran lasercut rapi yang memberi kesan mewah.",
+                colors: [
+                    { name: "Blush Floral", hex: "#E2B2BC" },
+                    { name: "Champagne Sand", hex: "#E5D3BE" },
+                    { name: "Terracotta Soft", hex: "#C68374" }
+                ],
+                selectedColorIndex: 0
+            },
+            {
+                id: "pashmina-plisket",
+                name: "Pashmina Plisket Lidi",
+                category: "Pashmina",
+                material: "Ceruty Babydoll Premium",
+                badge: "",
+                price: 38000,
+                stock: 0,
+                image: "",
+                description: "Lipit plisket rapat tanpa garis tengah, memberikan volume cantik dan tidak mudah lepek.",
+                colors: [
+                    { name: "Nude Peach", hex: "#E5C1B3" },
+                    { name: "Dusty Lilac", hex: "#C3B1C8" },
+                    { name: "Taupe", hex: "#9C8E85" }
+                ],
+                selectedColorIndex: 0
+            }
+        ];
+
+        const DEFAULT_ORDERS = [
+            {
+                id: "ORD-101",
+                customerName: "Aulia Rahma",
+                customerWa: "081298765432",
+                productName: "Voal Paris Premium",
+                color: "Warm Beige",
+                qty: 2,
+                total: 60000,
+                address: "Jl. Telekomunikasi No. 1, Buahbatu, Bandung",
+                status: "Diproses",
+                time: "Hari ini, 10:15"
+            },
+        ];
+
+        let products = loadProductsFromStorage();
+        let orders = loadOrdersFromStorage();
+        let currentCategory = "Semua";
+        let currentAdminTab = "products";
+        let pendingConfirmCallback = null;
+
+        function loadProductsFromStorage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_PRODUCTS_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) return parsed;
+                }
+            } catch (e) {
+                console.warn("Gagal memuat produk dari localStorage:", e);
+            }
+            return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+        }
+
+        function loadOrdersFromStorage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_ORDERS_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) return parsed;
+                }
+            } catch (e) {
+                console.warn("Gagal memuat pesanan dari localStorage:", e);
+            }
+            return JSON.parse(JSON.stringify(DEFAULT_ORDERS));
+        }
+
+        function saveProductsToStorage() {
+            try {
+                localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(products));
+            } catch (e) {
+                console.warn("Gagal menyimpan produk ke localStorage:", e);
+                showToast("Penyimpanan browser penuh! Coba gunakan ukuran gambar lebih kecil atau URL gambar.");
+            }
+        }
+
+        const SAMPLE_HIJAB_PRESETS = {
+            "pashmina-pink": "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#F6E7E7"/><circle cx="200" cy="185" r="125" fill="#E8C2CA" opacity="0.55"/><path d="M200 75 C115 75, 72 145, 68 255 C64 325, 102 368, 152 375 L248 375 C298 368, 336 325, 332 255 C328 145, 285 75, 200 75 Z" fill="#C98A98"/><path d="M82 265 Q200 325 318 265 C310 325 268 375 200 380 C132 375 90 325 82 265 Z" fill="#A96A78" opacity="0.65"/><ellipse cx="200" cy="185" rx="64" ry="82" fill="#FFFDF9"/><text x="200" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#3E3636">Pashmina Dusty Pink</text><text x="200" y="456" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7A6E6E">Vellora &amp; Co Editorial Slot</text></svg>`),
+            "voal-beige": "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#F7F3EE"/><circle cx="200" cy="185" r="125" fill="#E8DFD3" opacity="0.8"/><path d="M200 78 C122 78, 82 145, 76 250 L324 250 C318 145, 278 78, 200 78 Z" fill="#D5BE9E"/><path d="M84 250 L135 375 L265 375 L316 250 Z" fill="#C4AA87"/><ellipse cx="200" cy="185" rx="62" ry="80" fill="#FFFDF9"/><text x="200" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#3E3636">Voal Warm Beige</text><text x="200" y="456" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7A6E6E">Vellora &amp; Co Editorial Slot</text></svg>`),
+            "bergo-cream": "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#FFFDF9"/><circle cx="200" cy="185" r="125" fill="#F6E7E7" opacity="0.7"/><path d="M200 72 C118 72, 74 142, 66 260 C62 320, 96 365, 146 378 L254 378 C304 365, 338 320, 334 260 C326 142, 282 72, 200 72 Z" fill="#E8D8C5"/><path d="M128 112 Q200 92 272 112 Q256 142 200 142 Q144 142 128 112 Z" fill="#D4C0A8"/><ellipse cx="200" cy="188" rx="60" ry="76" fill="#FFFFFF"/><text x="200" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#3E3636">Bergo Cream Instan</text><text x="200" y="456" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7A6E6E">Vellora &amp; Co Editorial Slot</text></svg>`)
+        };
+
+        function escapeAttr(str) {
+            return String(str || "").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+
+        function saveOrdersToStorage() {
+            try {
+                localStorage.setItem(STORAGE_ORDERS_KEY, JSON.stringify(orders));
+            } catch (e) {
+                console.warn("Gagal menyimpan pesanan ke localStorage:", e);
+            }
+        }
+
+        function switchView(viewName) {
+            const storeView = document.getElementById("store-view");
+            const adminView = document.getElementById("admin-view");
+
+            if (!storeView || !adminView) return;
+
+            if (viewName === "admin") {
+                if (!isAdminLoggedIn()) {
+                    openLoginModal();
+                    return;
+                }
+                storeView.classList.add("hidden");
+                adminView.classList.remove("hidden");
+                renderAdminPanel();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+                adminView.classList.add("hidden");
+                storeView.classList.remove("hidden");
+                renderCatalog();
+            }
+        }
+
+        function setAdminTab(tabName) {
+            currentAdminTab = tabName;
+            const productsTab = document.getElementById("admin-tab-products");
+            const ordersTab = document.getElementById("admin-tab-orders");
+            const btnProducts = document.getElementById("tab-btn-products");
+            const btnOrders = document.getElementById("tab-btn-orders");
+
+            if (!productsTab || !ordersTab || !btnProducts || !btnOrders) return;
+
+            if (tabName === "orders") {
+                productsTab.classList.add("hidden");
+                ordersTab.classList.remove("hidden");
+                btnOrders.classList.remove("bg-vellora-beige", "text-vellora-dark");
+                btnOrders.classList.add("bg-vellora-dark", "text-white");
+                btnProducts.classList.remove("bg-vellora-dark", "text-white");
+                btnProducts.classList.add("bg-vellora-beige", "text-vellora-dark");
+            } else {
+                ordersTab.classList.add("hidden");
+                productsTab.classList.remove("hidden");
+                btnProducts.classList.remove("bg-vellora-beige", "text-vellora-dark");
+                btnProducts.classList.add("bg-vellora-dark", "text-white");
+                btnOrders.classList.remove("bg-vellora-dark", "text-white");
+                btnOrders.classList.add("bg-vellora-beige", "text-vellora-dark");
+            }
+            renderAdminPanel();
+        }
+
+        function isAdminLoggedIn() {
+            try {
+                return sessionStorage.getItem(ADMIN_SESSION_KEY) === "true";
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function updateAdminNavUI() {
+            const loggedIn = isAdminLoggedIn();
+            const navBtn = document.getElementById("nav-admin-btn");
+            const navIcon = document.getElementById("nav-admin-icon");
+            const navLabel = document.getElementById("nav-admin-label");
+            const navBadge = document.getElementById("admin-order-badge");
+
+            const mobIcon = document.getElementById("mobile-admin-icon");
+            const mobLabel = document.getElementById("mobile-admin-label");
+            const mobBadge = document.getElementById("mobile-admin-badge");
+
+            if (loggedIn) {
+                navBtn?.classList.remove("bg-vellora-beige", "text-vellora-dark");
+                navBtn?.classList.add("bg-emerald-50", "text-emerald-800", "border-emerald-200");
+                if (navIcon) navIcon.className = "fa-solid fa-circle-check text-emerald-600 text-xs";
+                if (navLabel) navLabel.textContent = "Admin Aktif";
+                navBadge?.classList.remove("hidden");
+
+                if (mobIcon) mobIcon.className = "fa-solid fa-circle-check text-emerald-600 mr-2";
+                if (mobLabel) mobLabel.textContent = "Admin (Admin Aktif)";
+                mobBadge?.classList.remove("hidden");
+            } else {
+                navBtn?.classList.remove("bg-emerald-50", "text-emerald-800", "border-emerald-200");
+                navBtn?.classList.add("bg-vellora-beige", "text-vellora-dark");
+                if (navIcon) navIcon.className = "fa-solid fa-lock text-vellora-pinkDark text-xs";
+                if (navLabel) navLabel.textContent = "Admin";
+                navBadge?.classList.add("hidden");
+
+                if (mobIcon) mobIcon.className = "fa-solid fa-lock text-vellora-pinkDark mr-2";
+                if (mobLabel) mobLabel.textContent = "Admin (Login)";
+                mobBadge?.classList.add("hidden");
+            }
+        }
+
+        function handleAdminNavClick() {
+            if (isAdminLoggedIn()) {
+                switchView("admin");
+            } else {
+                openLoginModal();
+            }
+        }
+
+        function openLoginModal() {
+            document.getElementById("login-error-box")?.classList.add("hidden");
+            document.getElementById("admin-login-form")?.reset();
+            const passInput = document.getElementById("admin-password");
+            if (passInput) passInput.type = "password";
+            const eyeIcon = document.getElementById("password-eye-icon");
+            if (eyeIcon) eyeIcon.className = "fa-regular fa-eye text-sm";
+            document.getElementById("admin-login-modal")?.classList.remove("hidden");
+        }
+
+        function closeLoginModal() {
+            document.getElementById("admin-login-modal")?.classList.add("hidden");
+        }
+
+        function togglePasswordVisibility() {
+            const passInput = document.getElementById("admin-password");
+            const eyeIcon = document.getElementById("password-eye-icon");
+            if (!passInput || !eyeIcon) return;
+            if (passInput.type === "password") {
+                passInput.type = "text";
+                eyeIcon.className = "fa-regular fa-eye-slash text-sm";
+            } else {
+                passInput.type = "password";
+                eyeIcon.className = "fa-regular fa-eye text-sm";
+            }
+        }
+
+        function fillDemoCredentials() {
+            const userEl = document.getElementById("admin-username");
+            const passEl = document.getElementById("admin-password");
+            if (userEl) userEl.value = ADMIN_CREDENTIALS.email;
+            if (passEl) passEl.value = ADMIN_CREDENTIALS.password;
+            document.getElementById("login-error-box")?.classList.add("hidden");
+            showToast("Kredensial akun demo telah diisi otomatis.");
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const inputUser = (document.getElementById("admin-username")?.value || "").trim().toLowerCase();
+            const inputPass = document.getElementById("admin-password")?.value || "";
+            const errorBox = document.getElementById("login-error-box");
+            const errorText = document.getElementById("login-error-text");
+
+            const isValidUser = (inputUser === ADMIN_CREDENTIALS.email || inputUser === ADMIN_CREDENTIALS.username);
+            const isValidPass = (inputPass === ADMIN_CREDENTIALS.password);
+
+            if (isValidUser && isValidPass) {
+                try {
+                    sessionStorage.setItem(ADMIN_SESSION_KEY, "true");
+                } catch (e) {
+                    console.warn("Gagal menyimpan sesi admin:", e);
+                }
+                errorBox?.classList.add("hidden");
+                closeLoginModal();
+                updateAdminNavUI();
+                switchView("admin");
+                showToast("Login berhasil! Selamat datang di dasbor Admin.");
+            } else {
+                if (errorText) errorText.textContent = "Username/Email atau Password salah.";
+                errorBox?.classList.remove("hidden");
+            }
+        }
+
+        function logoutAdmin() {
+            try {
+                sessionStorage.removeItem(ADMIN_SESSION_KEY);
+            } catch (e) {
+                console.warn("Gagal menghapus sesi admin:", e);
+            }
+            updateAdminNavUI();
+            switchView("store");
+            showToast("Anda telah keluar dari dasbor Admin.");
+        }
+
+        function formatRupiah(number) {
+            return "Rp " + Number(number || 0).toLocaleString("id-ID");
+        }
+
+        function adjustColor(hex, amount) {
+            let col = (hex || "#D8A7B1").replace("#", "");
+            if (col.length !== 6) col = "D8A7B1";
+            let num = parseInt(col, 16);
+            if (Number.isNaN(num)) num = 0xD8A7B1;
+            let r = Math.min(255, Math.max(0, (num >> 16) + amount));
+            let g = Math.min(255, Math.max(0, ((num >> 8) & 0x00FF) + amount));
+            let b = Math.min(255, Math.max(0, (num & 0x0000FF) + amount));
+            return "#" + (g | (b << 8) | (r << 16)).toString(16).padStart(6, "0");
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById("product-grid");
+            const emptyState = document.getElementById("empty-catalog-state");
+            if (!grid || !emptyState) return;
+
+            const searchQuery = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
+
+            const filtered = products.filter(p => {
+                const matchCat = currentCategory === "Semua" || p.category === currentCategory;
+                const matchSearch = (p.name || "").toLowerCase().includes(searchQuery) ||
+                    (p.material || "").toLowerCase().includes(searchQuery) ||
+                    (p.category || "").toLowerCase().includes(searchQuery);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+            grid.innerHTML = filtered.map(product => {
+                const safeIdx = Math.min(product.selectedColorIndex || 0, Math.max(0, product.colors.length - 1));
+                const activeColor = product.colors[safeIdx] || { name: "Dusty Pink", hex: "#D8A7B1" };
+                const shadowColor = adjustColor(activeColor.hex, -28);
+                const isOutOfStock = product.stock <= 0;
+                const isLowStock = product.stock > 0 && product.stock <= 5;
+
+                let stockBadge = `<span class="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">Tersedia (${product.stock})</span>`;
+                if (isOutOfStock) {
+                    stockBadge = `<span class="px-3 py-1 rounded-full text-[11px] font-bold bg-red-100 text-red-700">Stok Habis</span>`;
+                } else if (isLowStock) {
+                    stockBadge = `<span class="px-3 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">Stok Terbatas (${product.stock})</span>`;
+                }
+
+                const labelBadge = product.badge
+                    ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-vellora-pinkDark text-white shadow-xs">${product.badge}</span>`
+                    : "";
+
+                const swatchesHTML = product.colors.map((c, idx) => `
+                    <button type="button"
+                        onclick="selectProductColor('${product.id}', ${idx})"
+                        title="${escapeAttr(c.name)}"
+                        style="background-color: ${escapeAttr(c.hex)};"
+                        class="w-6 h-6 rounded-full border border-black/15 swatch-ring ${idx === safeIdx ? 'active' : ''}">
+                    </button>
+                `).join("");
+
+                return `
+                <article class="bg-white rounded-3xl border border-vellora-sand overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between group">
+                    <div>
+                        <div class="hijab-photo-slot relative w-full bg-gradient-to-b from-vellora-beige/70 to-vellora-cream flex flex-col items-center justify-center overflow-hidden">
+                            ${product.image ? `
+                                <img src="${escapeAttr(product.image)}" alt="${escapeAttr(product.name)} - ${escapeAttr(activeColor.name)}"
+                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div class="hidden w-full h-full flex flex-col items-center justify-center p-4">
+                                    <svg viewBox="0 0 200 160" class="w-36 h-36 drop-shadow">
+                                        <path d="M100 16 C60 16, 38 50, 35 98 C32 124, 48 140, 72 143 L128 143 C152 140, 168 124, 165 98 C162 50, 140 16, 100 16 Z" fill="${activeColor.hex}"/>
+                                        <path d="M44 102 Q100 128 156 102 C152 128 132 143 100 145 C68 143 48 128 44 102 Z" fill="${shadowColor}" opacity="0.6"/>
+                                        <ellipse cx="100" cy="66" rx="28" ry="35" fill="#FAF8F5"/>
+                                        <path d="M72 62 Q63 98 93 116 Q74 96 74 66 Z" fill="${shadowColor}" opacity="0.45"/>
+                                        <path d="M128 62 Q137 98 107 116 Q126 96 126 66 Z" fill="${shadowColor}" opacity="0.45"/>
+                                    </svg>
+                                    <span class="text-[10px] text-vellora-muted mt-1">Foto belum tersedia • Ilustrasi ${activeColor.name}</span>
+                                </div>
+                            ` : `
+                                <div class="w-full h-full flex flex-col items-center justify-center p-4">
+                                    <svg viewBox="0 0 200 160" class="w-40 h-40 transition-transform duration-300 group-hover:scale-105 drop-shadow">
+                                        <path d="M100 16 C60 16, 38 50, 35 98 C32 124, 48 140, 72 143 L128 143 C152 140, 168 124, 165 98 C162 50, 140 16, 100 16 Z" fill="${activeColor.hex}"/>
+                                        <path d="M44 102 Q100 128 156 102 C152 128 132 143 100 145 C68 143 48 128 44 102 Z" fill="${shadowColor}" opacity="0.6"/>
+                                        <ellipse cx="100" cy="66" rx="28" ry="35" fill="#FAF8F5"/>
+                                        <path d="M72 62 Q63 98 93 116 Q74 96 74 66 Z" fill="${shadowColor}" opacity="0.45"/>
+                                        <path d="M128 62 Q137 98 107 116 Q126 96 126 66 Z" fill="${shadowColor}" opacity="0.45"/>
+                                    </svg>
+                                    <span class="mt-1 text-[10px] font-medium text-vellora-muted bg-white/85 px-2.5 py-0.5 rounded-full border border-vellora-sand/70">
+                                        Slot Gambar • ${activeColor.name}
+                                    </span>
+                                </div>
+                            `}
+
+                            <div class="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
+                                <span class="px-3 py-1 rounded-full text-[11px] font-semibold bg-white/90 text-vellora-dark border border-vellora-sand backdrop-blur-xs">
+                                    ${product.category}
+                                </span>
+                                ${labelBadge}
+                            </div>
+                            <div class="absolute top-3 right-3 z-10">
+                                ${stockBadge}
+                            </div>
+
+                            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
+                                <span class="text-[11px] font-medium text-vellora-dark bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-vellora-sand/80 shadow-2xs">
+                                    Warna: <strong>${activeColor.name}</strong>
+                                </span>
+                                ${isAdminLoggedIn() ? `
+                                    <button type="button" onclick="openProductCrudModal('${product.id}')" title="Ubah Foto / Detail Produk"
+                                        class="px-2.5 py-1 rounded-full bg-vellora-dark/90 hover:bg-vellora-pinkDark text-white text-[10px] font-semibold transition flex items-center gap-1 shadow-2xs">
+                                        <i class="fa-solid fa-camera"></i>
+                                        <span>Atur Foto</span>
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        <div class="p-5 pb-3">
+                            <h3 class="font-serif text-xl font-bold text-vellora-dark leading-snug">${product.name}</h3>
+                            <p class="text-xs font-semibold text-vellora-pinkDark mt-0.5">Bahan: ${product.material}</p>
+                            <p class="text-xs text-vellora-muted mt-2 line-clamp-2 leading-relaxed">${product.description}</p>
+
+                            <div class="mt-4">
+                                <span class="text-[11px] uppercase tracking-wider font-bold text-vellora-muted block mb-2">Pilih Varian Warna (${product.colors.length}):</span>
+                                <div class="flex flex-wrap items-center gap-2.5">
+                                    ${swatchesHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-3 mt-2 border-t border-vellora-sand/60 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] text-vellora-muted block">Harga</span>
+                            <span class="font-serif text-xl font-bold text-vellora-dark">${formatRupiah(product.price)}</span>
+                        </div>
+                        <button type="button"
+                            onclick="openOrderModal('${product.id}')"
+                            ${isOutOfStock ? 'disabled' : ''}
+                            class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition flex items-center gap-2 ${
+                                isOutOfStock
+                                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                : 'bg-vellora-pink hover:bg-vellora-pinkDark text-white shadow-sm'
+                            }">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>${isOutOfStock ? 'Habis' : 'Pesan Sekarang'}</span>
+                        </button>
+                    </div>
+                </article>
+                `;
+            }).join("");
+        }
+
+        function selectProductColor(productId, colorIndex) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.selectedColorIndex = colorIndex;
+                renderCatalog();
+            }
+        }
+
+        function setCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll(".cat-btn").forEach(btn => {
+                if (btn.dataset.cat === category) {
+                    btn.classList.remove("bg-vellora-beige", "text-vellora-dark");
+                    btn.classList.add("bg-vellora-dark", "text-white");
+                } else {
+                    btn.classList.remove("bg-vellora-dark", "text-white");
+                    btn.classList.add("bg-vellora-beige", "text-vellora-dark");
+                }
+            });
+            renderCatalog();
+        }
+
+        function resetFilters() {
+            const searchEl = document.getElementById("search-input");
+            if (searchEl) searchEl.value = "";
+            setCategory("Semua");
+        }
+
+        function openOrderModal(preselectedProductId = null) {
+            const modal = document.getElementById("order-modal");
+            const productSelect = document.getElementById("cust-product");
+            const previewBox = document.getElementById("wa-preview-box");
+            const errorBox = document.getElementById("form-error-box");
+
+            previewBox?.classList.add("hidden");
+            errorBox?.classList.add("hidden");
+
+            if (productSelect) {
+                productSelect.innerHTML = products.map(p => `
+                    <option value="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>
+                        ${p.name} — ${formatRupiah(p.price)} ${p.stock <= 0 ? '(Stok Habis)' : `(Stok: ${p.stock})`}
+                    </option>
+                `).join("");
+
+                if (preselectedProductId) {
+                    productSelect.value = preselectedProductId;
+                } else {
+                    const firstAvailable = products.find(p => p.stock > 0);
+                    if (firstAvailable) productSelect.value = firstAvailable.id;
+                }
+            }
+
+            updateModalColorOptions(true);
+            modal?.classList.remove("hidden");
+        }
+
+        function closeOrderModal() {
+            document.getElementById("order-modal")?.classList.add("hidden");
+        }
+
+        function updateModalColorOptions(useCardSelectedColor = false) {
+            const productId = document.getElementById("cust-product")?.value;
+            const product = products.find(p => p.id === productId);
+            const colorSelect = document.getElementById("cust-color");
+            const qtyInput = document.getElementById("cust-qty");
+
+            if (!product || !colorSelect || !qtyInput) return;
+
+            colorSelect.innerHTML = product.colors.map((c, idx) => `
+                <option value="${escapeAttr(c.name)}" ${useCardSelectedColor && idx === (product.selectedColorIndex || 0) ? 'selected' : ''}>
+                    ${c.name}
+                </option>
+            `).join("");
+
+            qtyInput.max = product.stock > 0 ? product.stock : 1;
+            if (parseInt(qtyInput.value, 10) > product.stock && product.stock > 0) {
+                qtyInput.value = product.stock;
+            }
+
+            updateOrderTotalPreview();
+        }
+
+        function handleOrderPreviewImgError() {
+            const imgEl = document.getElementById("order-preview-img");
+            const svgWrap = document.getElementById("order-preview-svg-wrap");
+            const slotBadge = document.getElementById("order-preview-slot-badge");
+            imgEl?.classList.add("hidden");
+            svgWrap?.classList.remove("hidden");
+            if (slotBadge) slotBadge.textContent = "Ilustrasi Varian (Foto tidak dimuat)";
+        }
+
+        function updateOrderTotalPreview() {
+            const productId = document.getElementById("cust-product").value;
+            const colorName = document.getElementById("cust-color").value;
+            const qty = parseInt(document.getElementById("cust-qty").value) || 1;
+            const product = products.find(p => p.id === productId);
+
+            if (!product) return;
+
+            const total = product.price * qty;
+            document.getElementById("modal-total-price").textContent = formatRupiah(total);
+
+            const targetWa = normalizeWhatsappNumber(ADMIN_WHATSAPP_NUMBER) || DEFAULT_ADMIN_WHATSAPP_NUMBER;
+            const draftMsg = `Halo Admin *Vellora & Co*, saya mau tanya/pesan *${product.name}* (${colorName}) sebanyak ${qty} pcs (Estimasi ${formatRupiah(total)}).`;
+            syncWaDirectLink(buildWhatsappOrderUrl(targetWa, draftMsg));
+
+            const matchedColor = product.colors.find(c => c.name === colorName) || product.colors[0] || { name: "Dusty Pink", hex: "#D8A7B1" };
+            const titleEl = document.getElementById("order-preview-title");
+            const metaEl = document.getElementById("order-preview-meta");
+            if (titleEl) titleEl.textContent = product.name;
+            if (metaEl) metaEl.textContent = `Warna: ${matchedColor.name} • ${formatRupiah(product.price)}/pcs`;
+
+            const prevImg = document.getElementById("order-preview-img");
+            const prevSvgWrap = document.getElementById("order-preview-svg-wrap");
+            const slotBadge = document.getElementById("order-preview-slot-badge");
+
+            if (product.image) {
+                if (prevImg) {
+                    prevImg.src = product.image;
+                    prevImg.alt = `${product.name} - ${matchedColor.name}`;
+                    prevImg.classList.remove("hidden");
+                }
+                prevSvgWrap?.classList.add("hidden");
+                if (slotBadge) slotBadge.textContent = "Foto Produk Terpasang";
+            } else {
+                prevImg?.classList.add("hidden");
+                prevSvgWrap?.classList.remove("hidden");
+                document.getElementById("order-svg-hijab")?.setAttribute("fill", matchedColor.hex);
+                document.getElementById("order-svg-shadow")?.setAttribute("fill", adjustColor(matchedColor.hex, -28));
+                if (slotBadge) slotBadge.textContent = `Ilustrasi ${matchedColor.name}`;
+            }
+
+            const stockInfo = document.getElementById("modal-stock-info");
+            if (stockInfo) {
+                if (product.stock <= 0) {
+                    stockInfo.textContent = "Stok Habis";
+                    stockInfo.className = "text-[11px] font-semibold text-red-600";
+                } else {
+                    stockInfo.textContent = `Tersedia (${product.stock} pcs siap kirim)`;
+                    stockInfo.className = "text-[11px] font-semibold text-emerald-700";
+                }
+            }
+        }
+
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+
+            const name = (document.getElementById("cust-name")?.value || "").trim();
+            const custWa = (document.getElementById("cust-wa")?.value || "").trim();
+            const productId = document.getElementById("cust-product")?.value || "";
+            const color = document.getElementById("cust-color")?.value || "";
+            const qty = parseInt(document.getElementById("cust-qty")?.value, 10) || 1;
+            const address = (document.getElementById("cust-address")?.value || "").trim();
+            const errorBox = document.getElementById("form-error-box");
+            const errorText = document.getElementById("form-error-text");
+
+            const product = products.find(p => p.id === productId);
+
+            if (!name || !custWa || !product || !address) {
+                if (errorText) errorText.textContent = "Mohon lengkapi Nama, No. WhatsApp, Jenis Kerudung, dan Alamat Pengiriman.";
+                errorBox?.classList.remove("hidden");
+                return;
+            }
+
+            if (qty < 1 || qty > product.stock) {
+                if (errorText) errorText.textContent = `Jumlah pesanan tidak valid. Stok tersedia saat ini: ${product.stock} pcs.`;
+                errorBox?.classList.remove("hidden");
+                return;
+            }
+
+            errorBox?.classList.add("hidden");
+
+            const total = product.price * qty;
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")} WIB`;
+
+            const newOrder = {
+                id: "ORD-" + String(Math.floor(100 + Math.random() * 900)),
+                customerName: name,
+                customerWa: custWa,
+                productName: product.name,
+                color: color,
+                qty: qty,
+                total: total,
+                address: address,
+                status: "Menunggu Konfirmasi",
+                time: `Hari ini, ${timeStr}`
+            };
+
+            orders.unshift(newOrder);
+            saveOrdersToStorage();
+
+            product.stock = Math.max(0, product.stock - qty);
+            saveProductsToStorage();
+
+            const messageText =
+`Halo Admin *Vellora & Co* 👋
+Saya ingin memesan kerudung dengan detail berikut:
+
+• *Nama:* ${name}
+• *No. WhatsApp:* ${custWa}
+• *Jenis Kerudung:* ${product.name} (${product.category})
+• *Warna:* ${color}
+• *Jumlah:* ${qty} pcs
+• *Estimasi Total:* ${formatRupiah(total)}
+• *Alamat Pengiriman:* ${address}
+
+Mohon informasi ketersediaan dan total ongkirnya ya, Kak. Terima kasih!`;
+
+            const targetWa = normalizeWhatsappNumber(ADMIN_WHATSAPP_NUMBER) || DEFAULT_ADMIN_WHATSAPP_NUMBER;
+            const waUrl = buildWhatsappOrderUrl(targetWa, messageText);
+            syncWaDirectLink(waUrl);
+
+            const targetLabelEl = document.getElementById("wa-target-number-label");
+            if (targetLabelEl) {
+                targetLabelEl.textContent = `+${targetWa}`;
+            }
+
+            document.getElementById("wa-message-preview").textContent = messageText;
+            document.getElementById("wa-preview-box").classList.remove("hidden");
+
+            renderCatalog();
+            renderAdminPanel();
+            triggerWhatsappRedirect(waUrl, targetWa);
+        }
+
+        function copyWhatsAppMessage() {
+            const text = document.getElementById("wa-message-preview")?.textContent || "";
+            if (!text) return;
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = text;
+            tempTextArea.setAttribute("readonly", "");
+            tempTextArea.style.position = "absolute";
+            tempTextArea.style.left = "-9999px";
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                document.execCommand("copy");
+                showToast("Teks pesanan berhasil disalin ke clipboard!");
+            } catch (err) {
+                showToast("Gagal menyalin teks secara otomatis.");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        function setCrudImageValue(srcValue, isUrlInput = false) {
+            const cleanVal = (srcValue || "").trim();
+            const prodImgEl = document.getElementById("crud-prod-image");
+            const urlImgEl = document.getElementById("crud-image-url");
+            if (prodImgEl) prodImgEl.value = cleanVal;
+            if (!isUrlInput && urlImgEl) {
+                urlImgEl.value = cleanVal.startsWith("data:") ? "" : cleanVal;
+            }
+            updateCrudImagePreview(cleanVal);
+        }
+
+        function updateCrudImagePreview(srcVal) {
+            const imgEl = document.getElementById("crud-image-preview-img");
+            const placeholderEl = document.getElementById("crud-image-placeholder");
+            const statusLabel = document.getElementById("crud-image-status-label");
+
+            if (srcVal) {
+                if (imgEl) {
+                    imgEl.src = srcVal;
+                    imgEl.classList.remove("hidden");
+                }
+                placeholderEl?.classList.add("hidden");
+            } else {
+                if (imgEl) {
+                    imgEl.src = "";
+                    imgEl.classList.add("hidden");
+                }
+                placeholderEl?.classList.remove("hidden");
+                if (statusLabel) statusLabel.textContent = "Slot Ilustrasi Default";
+            }
+        }
+
+        function handleCrudPreviewImgError() {
+            const imgEl = document.getElementById("crud-image-preview-img");
+            const placeholderEl = document.getElementById("crud-image-placeholder");
+            const statusLabel = document.getElementById("crud-image-status-label");
+            imgEl?.classList.add("hidden");
+            placeholderEl?.classList.remove("hidden");
+            if (statusLabel) statusLabel.textContent = "URL/Gambar tidak valid • Pakai default";
+        }
+
+        function handleCrudUrlInput(urlVal) {
+            setCrudImageValue(urlVal, true);
+        }
+
+        function handleCrudFileSelect(event) {
+            const file = event.target.files && event.target.files[0];
+            if (file) processCrudImageFile(file);
+            event.target.value = "";
+        }
+
+        function handleCrudDragOver(event) {
+            event.preventDefault();
+            document.getElementById("crud-dropzone")?.classList.add("dropzone-active");
+        }
+
+        function handleCrudDragLeave(event) {
+            event.preventDefault();
+            document.getElementById("crud-dropzone")?.classList.remove("dropzone-active");
+        }
+
+        function handleCrudDrop(event) {
+            event.preventDefault();
+            document.getElementById("crud-dropzone")?.classList.remove("dropzone-active");
+            const file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
+            if (file) processCrudImageFile(file);
+        }
+
+        function processCrudImageFile(file) {
+            const errorBox = document.getElementById("crud-error-box");
+            const errorText = document.getElementById("crud-error-text");
+
+            if (!file.type.startsWith("image/")) {
+                if (errorText) errorText.textContent = "File harus berupa gambar (JPG, PNG, WEBP, atau GIF).";
+                errorBox?.classList.remove("hidden");
+                return;
+            }
+
+            const maxBytes = 1.5 * 1024 * 1024;
+            if (file.size > maxBytes) {
+                if (errorText) errorText.textContent = "Ukuran gambar maksimal 1.5 MB agar penyimpanan browser tetap ringan.";
+                errorBox?.classList.remove("hidden");
+                return;
+            }
+
+            errorBox?.classList.add("hidden");
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                setCrudImageValue(e.target.result, false);
+                showToast(`Foto "${file.name}" siap dipasang pada slot kerudung.`);
+            };
+            reader.onerror = function() {
+                if (errorText) errorText.textContent = "Gagal membaca file gambar. Coba pilih file lain.";
+                errorBox?.classList.remove("hidden");
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function applySampleHijabImage(presetKey) {
+            const presetSrc = SAMPLE_HIJAB_PRESETS[presetKey];
+            if (!presetSrc) return;
+            document.getElementById("crud-error-box")?.classList.add("hidden");
+            setCrudImageValue(presetSrc, false);
+            showToast("Sampel foto kerudung diterapkan ke slot pratinjau.");
+        }
+
+        function clearCrudProductImage() {
+            const fileEl = document.getElementById("crud-image-file");
+            if (fileEl) fileEl.value = "";
+            setCrudImageValue("", false);
+            showToast("Gambar dihapus, kembali ke slot default.");
+        }
+
+        function openProductCrudModal(productId = null) {
+            const modal = document.getElementById("crud-product-modal");
+            const errorBox = document.getElementById("crud-error-box");
+            const colorList = document.getElementById("crud-color-list");
+            if (!modal || !colorList) return;
+
+            errorBox?.classList.add("hidden");
+            colorList.innerHTML = "";
+
+            const titleEl = document.getElementById("crud-modal-title");
+            const subEl = document.getElementById("crud-modal-subtitle");
+            const iconEl = document.getElementById("crud-modal-icon");
+            const submitBtn = document.getElementById("crud-submit-btn");
+
+            if (productId) {
+                const prod = products.find(p => p.id === productId);
+                if (!prod) return;
+
+                if (titleEl) titleEl.textContent = "Edit Detail Kerudung";
+                if (subEl) subEl.textContent = `Perbarui foto, informasi, harga, stok, atau varian warna "${prod.name}"`;
+                if (iconEl) iconEl.className = "fa-solid fa-pen-to-square";
+                if (submitBtn) submitBtn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i><span>Simpan Perubahan</span>`;
+
+                document.getElementById("crud-prod-id").value = prod.id;
+                document.getElementById("crud-prod-name").value = prod.name;
+                document.getElementById("crud-prod-category").value = prod.category;
+                document.getElementById("crud-prod-material").value = prod.material;
+                document.getElementById("crud-prod-badge").value = prod.badge || "";
+                document.getElementById("crud-prod-price").value = prod.price;
+                document.getElementById("crud-prod-stock").value = prod.stock;
+                document.getElementById("crud-prod-desc").value = prod.description;
+                setCrudImageValue(prod.image || "", false);
+
+                prod.colors.forEach(c => addCrudColorRow(c.name, c.hex));
+            } else {
+                if (titleEl) titleEl.textContent = "Tambah Kerudung Baru";
+                if (subEl) subEl.textContent = "Lengkapi foto, detail produk kerudung beserta varian warnanya";
+                if (iconEl) iconEl.className = "fa-solid fa-plus";
+                if (submitBtn) submitBtn.innerHTML = `<i class="fa-solid fa-plus"></i><span>Tambahkan ke Katalog</span>`;
+
+                document.getElementById("crud-product-form")?.reset();
+                document.getElementById("crud-prod-id").value = "";
+                document.getElementById("crud-prod-price").value = 35000;
+                document.getElementById("crud-prod-stock").value = 15;
+                setCrudImageValue("", false);
+
+                addCrudColorRow("Dusty Pink", "#D8A7B1");
+                addCrudColorRow("Warm Cream", "#F2E9DC");
+            }
+
+            modal.classList.remove("hidden");
+        }
+
+        function closeProductCrudModal() {
+            document.getElementById("crud-product-modal")?.classList.add("hidden");
+        }
+
+        function addCrudColorRow(colorName = "", colorHex = "#D8A7B1") {
+            const container = document.getElementById("crud-color-list");
+            if (!container) return;
+            const row = document.createElement("div");
+            row.className = "crud-color-row flex items-center gap-2.5 bg-white p-2 rounded-xl border border-vellora-sand";
+            row.innerHTML = `
+                <input type="color" value="${escapeAttr(colorHex)}" class="crud-color-hex w-9 h-9 rounded-lg border border-vellora-sand cursor-pointer shrink-0" title="Pilih Kode Warna">
+                <input type="text" value="${escapeAttr(colorName)}" placeholder="Nama Warna (misal: Dusty Pink)" required
+                    class="crud-color-name flex-1 px-3 py-1.5 rounded-lg bg-vellora-cream border border-vellora-sand text-xs font-medium focus:outline-none focus:border-vellora-pinkDark">
+                <button type="button" onclick="removeCrudColorRow(this)" title="Hapus Varian Warna"
+                    class="w-8 h-8 rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition flex items-center justify-center text-xs shrink-0">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            `;
+            container.appendChild(row);
+        }
+
+        function removeCrudColorRow(btn) {
+            const container = document.getElementById("crud-color-list");
+            if (!container) return;
+            if (container.querySelectorAll(".crud-color-row").length <= 1) {
+                showToast("Minimal harus tersedia 1 varian warna kerudung.");
+                return;
+            }
+            btn.closest(".crud-color-row")?.remove();
+        }
+
+        function handleSaveProductCrud(event) {
+            event.preventDefault();
+            const errorBox = document.getElementById("crud-error-box");
+            const errorText = document.getElementById("crud-error-text");
+
+            const editId = (document.getElementById("crud-prod-id")?.value || "").trim();
+            const image = (document.getElementById("crud-prod-image")?.value || "").trim();
+            const name = (document.getElementById("crud-prod-name")?.value || "").trim();
+            const category = document.getElementById("crud-prod-category")?.value || "Pashmina";
+            const material = (document.getElementById("crud-prod-material")?.value || "").trim();
+            const badge = document.getElementById("crud-prod-badge")?.value || "";
+            const price = Math.max(1000, parseInt(document.getElementById("crud-prod-price")?.value, 10) || 0);
+            const stock = Math.max(0, parseInt(document.getElementById("crud-prod-stock")?.value, 10) || 0);
+            const description = (document.getElementById("crud-prod-desc")?.value || "").trim();
+
+            const colorRows = document.querySelectorAll("#crud-color-list .crud-color-row");
+            const colors = [];
+            colorRows.forEach(row => {
+                const cName = (row.querySelector(".crud-color-name")?.value || "").trim();
+                const cHex = row.querySelector(".crud-color-hex")?.value || "#D8A7B1";
+                if (cName) {
+                    colors.push({ name: cName, hex: cHex });
+                }
+            });
+
+            if (!name || !material || !description || colors.length === 0) {
+                if (errorText) errorText.textContent = "Mohon lengkapi Nama, Bahan, Deskripsi, dan minimal 1 Varian Warna.";
+                errorBox?.classList.remove("hidden");
+                return;
+            }
+
+            errorBox?.classList.add("hidden");
+
+            if (editId) {
+                const idx = products.findIndex(p => p.id === editId);
+                if (idx !== -1) {
+                    const prevSelected = products[idx].selectedColorIndex || 0;
+                    products[idx] = {
+                        ...products[idx],
+                        name,
+                        category,
+                        material,
+                        badge,
+                        price,
+                        stock,
+                        image,
+                        description,
+                        colors,
+                        selectedColorIndex: prevSelected < colors.length ? prevSelected : 0
+                    };
+                    showToast(`Produk "${name}" berhasil diperbarui!`);
+                }
+            } else {
+                const newProduct = {
+                    id: "prod-" + Date.now(),
+                    name,
+                    category,
+                    material,
+                    badge,
+                    price,
+                    stock,
+                    image,
+                    description,
+                    colors,
+                    selectedColorIndex: 0
+                };
+                products.unshift(newProduct);
+                showToast(`Kerudung baru "${name}" berhasil ditambahkan!`);
+            }
+
+            saveProductsToStorage();
+            closeProductCrudModal();
+            renderCatalog();
+            renderAdminPanel();
+        }
+
+        function openDeleteProductConfirm(productId) {
+            const prod = products.find(p => p.id === productId);
+            if (!prod) return;
+
+            const iconWrap = document.getElementById("confirm-dialog-icon-wrap");
+            const iconEl = document.getElementById("confirm-dialog-icon");
+            const titleEl = document.getElementById("confirm-dialog-title");
+            const msgEl = document.getElementById("confirm-dialog-message");
+            const actionBtn = document.getElementById("confirm-dialog-action-btn");
+
+            if (iconWrap) iconWrap.className = "w-14 h-14 rounded-full bg-red-100 text-red-600 mx-auto flex items-center justify-center text-2xl";
+            if (iconEl) iconEl.className = "fa-regular fa-trash-can";
+            if (titleEl) titleEl.textContent = `Hapus "${prod.name}"?`;
+            if (msgEl) msgEl.textContent = "Produk kerudung ini akan dihapus dari daftar admin dan etalase pelanggan secara real-time.";
+
+            if (actionBtn) {
+                actionBtn.className = "flex-1 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm font-semibold shadow-sm transition";
+                actionBtn.textContent = "Ya, Hapus Produk";
+            }
+
+            pendingConfirmCallback = () => {
+                products = products.filter(p => p.id !== productId);
+                saveProductsToStorage();
+                renderCatalog();
+                renderAdminPanel();
+                showToast(`Produk "${prod.name}" telah dihapus.`);
+            };
+
+            document.getElementById("confirm-dialog-modal")?.classList.remove("hidden");
+        }
+
+        function openResetConfirmModal() {
+            const iconWrap = document.getElementById("confirm-dialog-icon-wrap");
+            const iconEl = document.getElementById("confirm-dialog-icon");
+            const titleEl = document.getElementById("confirm-dialog-title");
+            const msgEl = document.getElementById("confirm-dialog-message");
+            const actionBtn = document.getElementById("confirm-dialog-action-btn");
+
+            if (iconWrap) iconWrap.className = "w-14 h-14 rounded-full bg-amber-100 text-amber-600 mx-auto flex items-center justify-center text-2xl";
+            if (iconEl) iconEl.className = "fa-solid fa-rotate-left";
+            if (titleEl) titleEl.textContent = "Reset ke Data Katalog Awal?";
+            if (msgEl) msgEl.textContent = "Semua perubahan CRUD produk dan pesanan akan dikembalikan ke data awal Vellora & Co.";
+
+            if (actionBtn) {
+                actionBtn.className = "flex-1 py-2.5 rounded-full bg-vellora-dark hover:bg-vellora-pinkDark text-white text-sm font-semibold shadow-sm transition";
+                actionBtn.textContent = "Ya, Reset Data";
+            }
+
+            pendingConfirmCallback = () => {
+                products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+                orders = JSON.parse(JSON.stringify(DEFAULT_ORDERS));
+                saveProductsToStorage();
+                saveOrdersToStorage();
+                renderCatalog();
+                renderAdminPanel();
+                showToast("Data katalog & pesanan berhasil dikembalikan ke awal.");
+            };
+
+            document.getElementById("confirm-dialog-modal")?.classList.remove("hidden");
+        }
+
+        function closeConfirmDialog() {
+            document.getElementById("confirm-dialog-modal")?.classList.add("hidden");
+            pendingConfirmCallback = null;
+        }
+
+        document.getElementById("confirm-dialog-action-btn")?.addEventListener("click", () => {
+            if (typeof pendingConfirmCallback === "function") {
+                pendingConfirmCallback();
+            }
+            closeConfirmDialog();
+        });
+
+        function renderAdminPanel() {
+            const totalStockUnits = products.reduce((sum, p) => sum + p.stock, 0);
+            const pendingCount = orders.filter(o => o.status === "Menunggu Konfirmasi").length;
+            const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
+
+            const elTotalProd = document.getElementById("stat-total-products");
+            const elTotalStock = document.getElementById("stat-total-stock");
+            const elPendingOrders = document.getElementById("stat-pending-orders");
+            const elTotalRev = document.getElementById("stat-total-revenue");
+            const elAdminBadge = document.getElementById("admin-order-badge");
+            const elMobBadge = document.getElementById("mobile-admin-badge");
+            const elTabCount = document.getElementById("tab-orders-count");
+
+            if (elTotalProd) elTotalProd.textContent = products.length + " Model";
+            if (elTotalStock) elTotalStock.textContent = totalStockUnits + " pcs";
+            if (elPendingOrders) elPendingOrders.textContent = pendingCount;
+            if (elTotalRev) elTotalRev.textContent = formatRupiah(totalRevenue);
+            if (elAdminBadge) elAdminBadge.textContent = orders.length;
+            if (elMobBadge) elMobBadge.textContent = orders.length;
+            if (elTabCount) elTabCount.textContent = orders.length;
+            syncAdminWhatsappSettingInput();
+
+            const searchAdmin = (document.getElementById("admin-prod-search")?.value || "").toLowerCase().trim();
+            const catAdmin = document.getElementById("admin-prod-cat-filter")?.value || "Semua";
+
+            const filteredAdminProducts = products.filter(p => {
+                const matchCat = catAdmin === "Semua" || p.category === catAdmin;
+                const matchSearch = (p.name || "").toLowerCase().includes(searchAdmin) ||
+                    (p.material || "").toLowerCase().includes(searchAdmin);
+                return matchCat && matchSearch;
+            });
+
+            const tableBody = document.getElementById("admin-product-table");
+            if (tableBody) {
+                if (filteredAdminProducts.length === 0) {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="8" class="py-10 text-center text-sm text-vellora-muted">
+                                Tidak ada barang kerudung yang cocok dengan filter pencarian.
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    tableBody.innerHTML = filteredAdminProducts.map(p => {
+                        const isOut = p.stock <= 0;
+                        const isLow = p.stock > 0 && p.stock <= 5;
+                        const firstColor = p.colors[0] || { name: "Dusty Pink", hex: "#D8A7B1" };
+                        const stockInputColor = isOut
+                            ? "border-red-300 bg-red-50 text-red-700"
+                            : (isLow ? "border-amber-300 bg-amber-50 text-amber-800" : "border-vellora-sand bg-vellora-cream text-vellora-dark");
+
+                        const colorDots = p.colors.map(c => `
+                            <span title="${escapeAttr(c.name)}" style="background-color: ${escapeAttr(c.hex)};" class="w-4 h-4 rounded-full border border-black/15 inline-block"></span>
+                        `).join("");
+
+                        const thumbSlotHTML = p.image ? `
+                            <div class="w-12 aspect-[4/5] rounded-xl overflow-hidden border border-vellora-sand bg-vellora-cream flex items-center justify-center relative">
+                                <img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}"
+                                    onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+                                    class="w-full h-full object-cover">
+                                <div class="hidden w-full h-full flex items-center justify-center" style="background-color: ${firstColor.hex}33;">
+                                    <span class="w-5 h-5 rounded-full border border-black/15" style="background-color: ${firstColor.hex};"></span>
+                                </div>
+                            </div>
+                        ` : `
+                            <div class="w-12 aspect-[4/5] rounded-xl border border-dashed border-vellora-sand bg-vellora-beige/70 flex flex-col items-center justify-center p-1 text-center" title="Belum ada foto unggahan • Ilustrasi ${escapeAttr(firstColor.name)}">
+                                <span class="w-5 h-5 rounded-full border border-black/15 shadow-2xs" style="background-color: ${firstColor.hex};"></span>
+                                <span class="text-[9px] font-semibold text-vellora-muted mt-1 leading-none">Slot</span>
+                            </div>
+                        `;
+
+                        return `
+                        <tr class="hover:bg-vellora-cream/70 transition">
+                            <td class="py-3.5 px-3">${thumbSlotHTML}</td>
+                            <td class="py-3.5 px-3">
+                                <div class="flex items-center gap-2">
+                                    <p class="font-bold text-vellora-dark">${p.name}</p>
+                                    ${p.badge ? `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-vellora-pinkLight text-vellora-pinkDark">${p.badge}</span>` : ''}
+                                </div>
+                                <p class="text-[11px] text-vellora-muted line-clamp-1 max-w-xs mt-0.5">${p.description}</p>
+                            </td>
+                            <td class="py-3.5 px-3">
+                                <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-vellora-beige text-vellora-dark">${p.category}</span>
+                                <span class="block text-xs text-vellora-muted mt-1">${p.material}</span>
+                            </td>
+                            <td class="py-3.5 px-3">
+                                <div class="flex flex-wrap items-center gap-1 max-w-[110px]">${colorDots}</div>
+                                <span class="text-[10px] text-vellora-muted">${p.colors.length} warna</span>
+                            </td>
+                            <td class="py-3.5 px-3 font-bold text-vellora-dark whitespace-nowrap">${formatRupiah(p.price)}</td>
+                            <td class="py-3.5 px-3">
+                                <div class="flex items-center justify-center gap-1">
+                                    <button type="button" onclick="adminAdjustStock('${p.id}', -1)" title="Kurangi Stok"
+                                        class="w-7 h-7 rounded-lg bg-vellora-beige hover:bg-vellora-sand text-xs font-bold transition">-</button>
+                                    <input type="number" min="0" value="${p.stock}"
+                                        onchange="adminUpdateProductStock('${p.id}', this.value)"
+                                        class="w-12 px-1.5 py-1 rounded-lg border text-xs font-bold text-center ${stockInputColor}">
+                                    <button type="button" onclick="adminAdjustStock('${p.id}', 1)" title="Tambah Stok"
+                                        class="w-7 h-7 rounded-lg bg-vellora-beige hover:bg-vellora-sand text-xs font-bold transition">+</button>
+                                </div>
+                            </td>
+                            <td class="py-3.5 px-3">
+                                <button type="button" onclick="adminToggleStockStatus('${p.id}')" title="Klik untuk ubah status Tersedia/Habis"
+                                    class="px-3 py-1 rounded-full text-[11px] font-bold transition whitespace-nowrap ${
+                                        isOut
+                                        ? 'bg-red-100 text-red-700 hover:bg-red-200'
+                                        : (isLow ? 'bg-amber-100 text-amber-800 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200')
+                                    }">
+                                    ${isOut ? 'Stok Habis' : (isLow ? 'Menipis' : 'Tersedia')}
+                                </button>
+                            </td>
+                            <td class="py-3.5 px-3 text-right whitespace-nowrap">
+                                <div class="inline-flex items-center gap-1.5">
+                                    <button type="button" onclick="openProductCrudModal('${p.id}')" title="Edit Detail Produk"
+                                        class="px-3 py-1.5 rounded-full bg-vellora-beige hover:bg-vellora-dark text-vellora-dark hover:text-white text-xs font-semibold transition flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pen-to-square text-[11px]"></i>
+                                        <span>Edit</span>
+                                    </button>
+                                    <button type="button" onclick="openDeleteProductConfirm('${p.id}')" title="Hapus Produk"
+                                        class="px-3 py-1.5 rounded-full bg-red-50 hover:bg-red-600 text-red-600 hover:text-white text-xs font-semibold transition flex items-center gap-1.5">
+                                        <i class="fa-regular fa-trash-can text-[11px]"></i>
+                                        <span>Hapus</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        `;
+                    }).join("");
+                }
+            }
+
+            const filterStatus = document.getElementById("admin-order-filter")?.value || "Semua";
+            const filteredOrders = filterStatus === "Semua" ? orders : orders.filter(o => o.status === filterStatus);
+            const ordersList = document.getElementById("admin-orders-list");
+            if (!ordersList) return;
+
+            if (filteredOrders.length === 0) {
+                ordersList.innerHTML = `<p class="col-span-full text-sm text-vellora-muted text-center py-8">Tidak ada pesanan dengan status "${filterStatus}".</p>`;
+                return;
+            }
+
+            ordersList.innerHTML = filteredOrders.map(o => {
+                const waClean = normalizeWhatsappNumber(o.customerWa);
+                const waFollowupMsg = encodeURIComponent(`Halo Kak *${o.customerName}*, terima kasih telah memesan *${o.productName} (${o.color})* di *Vellora & Co* (${o.id}). Pesanan Kakak saat ini berstatus: *${o.status}*.`);
+
+                return `
+                <div class="p-4 rounded-2xl bg-vellora-cream border border-vellora-sand space-y-2.5 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-xs font-bold text-vellora-pinkDark">${o.id} • ${o.time}</span>
+                            <div class="flex items-center gap-1.5">
+                                <select onchange="adminUpdateOrderStatus('${o.id}', this.value)"
+                                    class="text-xs font-semibold px-2.5 py-1 rounded-full border border-vellora-sand bg-white focus:outline-none">
+                                    <option value="Menunggu Konfirmasi" ${o.status === 'Menunggu Konfirmasi' ? 'selected' : ''}>Menunggu Konfirmasi</option>
+                                    <option value="Diproses" ${o.status === 'Diproses' ? 'selected' : ''}>Diproses</option>
+                                    <option value="Dikirim" ${o.status === 'Dikirim' ? 'selected' : ''}>Dikirim</option>
+                                    <option value="Selesai" ${o.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                                </select>
+                                <button type="button" onclick="adminDeleteOrder('${o.id}')" title="Hapus Pesanan"
+                                    class="w-7 h-7 rounded-full text-vellora-muted hover:text-red-600 hover:bg-red-50 transition flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-sm text-vellora-dark">${o.customerName}</p>
+                                <span class="text-[11px] font-medium text-green-700"><i class="fa-brands fa-whatsapp mr-1"></i>${o.customerWa || '-'}</span>
+                            </div>
+                            <p class="text-xs text-vellora-dark mt-0.5 font-medium">${o.productName} (${o.color}) &times; ${o.qty} pcs</p>
+                            <p class="text-[11px] text-vellora-muted mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${o.address}</p>
+                        </div>
+                    </div>
+                    <div class="pt-2.5 border-t border-vellora-sand/60 flex justify-between items-center text-xs">
+                        <div>
+                            <span class="text-vellora-muted">Total: </span>
+                            <span class="font-bold text-vellora-dark">${formatRupiah(o.total)}</span>
+                        </div>
+                        ${waClean ? `
+                        <a href="https://wa.me/${waClean}?text=${waFollowupMsg}" target="_blank" rel="noopener noreferrer"
+                            class="px-3 py-1 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold text-[11px] transition flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Chat Pembeli</span>
+                        </a>` : ''}
+                    </div>
+                </div>
+                `;
+            }).join("");
+        }
+
+        function adminAdjustStock(productId, delta) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            product.stock = Math.max(0, product.stock + delta);
+            saveProductsToStorage();
+            renderCatalog();
+            renderAdminPanel();
+        }
+
+        function adminUpdateProductStock(productId, value) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            product.stock = Math.max(0, parseInt(value, 10) || 0);
+            saveProductsToStorage();
+            renderCatalog();
+            renderAdminPanel();
+            showToast(`Stok ${product.name} diperbarui menjadi ${product.stock} pcs.`);
+        }
+
+        function adminToggleStockStatus(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            product.stock = product.stock > 0 ? 0 : 10;
+            saveProductsToStorage();
+            renderCatalog();
+            renderAdminPanel();
+            showToast(`Status stok ${product.name} diubah menjadi ${product.stock > 0 ? 'Tersedia' : 'Stok Habis'}.`);
+        }
+
+        function adminUpdateOrderStatus(orderId, newStatus) {
+            const order = orders.find(o => o.id === orderId);
+            if (order) {
+                order.status = newStatus;
+                saveOrdersToStorage();
+                renderAdminPanel();
+                showToast(`Status pesanan ${orderId} diubah: ${newStatus}`);
+            }
+        }
+
+        function adminDeleteOrder(orderId) {
+            orders = orders.filter(o => o.id !== orderId);
+            saveOrdersToStorage();
+            renderAdminPanel();
+            showToast(`Pesanan ${orderId} dihapus dari daftar.`);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById("mobile-menu")?.classList.toggle("hidden");
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById("toast-notification");
+            const msgEl = document.getElementById("toast-message");
+            if (!toast || !msgEl) return;
+            msgEl.textContent = message;
+            toast.classList.remove("hidden");
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 3000);
+        }
+
+        window.onload = function() {
+            updateAdminNavUI();
+            syncAdminWhatsappSettingInput();
+            renderCatalog();
+            renderAdminPanel();
+        };
+    </script>
+</body>
+</html>
